@@ -1,0 +1,22 @@
+builders:
+  colorBuilder:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['colorBuilder']
+    build_extensions: { 'design-system.json': ['ui/identity/colors.g.dart'] }
+    build_to: source
+    auto_apply: root_package
+    defaults:
+      generate_for:
+        include:
+          - lib/design-system.json
+
+  # sizeBuilder:
+  #   import: 'package:design_system_generator/builder.dart'
+  #   builder_factories: ['spatialBuilder']
+  #   build_extensions: { 'design-system.json': ['ui/identity/spatials.g.dart'] }
+  #   build_to: source
+  #   auto_apply: root_package
+  #   defaults:
+  #     generate_for:
+  #       include:
+  #         - lib/design-system.json
