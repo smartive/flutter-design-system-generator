@@ -44,8 +44,7 @@ enum AppColor {
 };
 
 const _inputValidColors = <String, String>{
-  'mylib|lib/design-system.json':
-      '''
+  'mylib|lib/design-system.json': '''
 {
   "colors": {
     "pink": "#FF00FF",
@@ -96,8 +95,7 @@ enum AppColor {
 };
 
 const _inputNamespacedColors = <String, String>{
-  'mylib|lib/design-system.json':
-      '''
+  'mylib|lib/design-system.json': '''
 {
   "colors": {
     "pink": {
@@ -147,8 +145,7 @@ enum AppColor {
 };
 
 const _inputNamespacedColorsWithDefault = <String, String>{
-  'mylib|lib/design-system.json':
-      '''
+  'mylib|lib/design-system.json': '''
 {
   "colors": {
     "pink": {
@@ -198,8 +195,7 @@ enum AppColor {
 };
 
 const _inputInvalidColorNames = <String, String>{
-  'mylib|lib/design-system.json':
-      '''
+  'mylib|lib/design-system.json': '''
 {
   "colors": {
     "foo": "#FF00FF",
@@ -247,8 +243,7 @@ enum AppColor {
 };
 
 const _inputInvalidColorValues = <String, String>{
-  'mylib|lib/design-system.json':
-      '''
+  'mylib|lib/design-system.json': '''
 {
   "colors": {
     "foo": "bar",
@@ -295,8 +290,7 @@ enum AppColor {
 };
 
 const _inputAlphaChannels = <String, String>{
-  'mylib|lib/design-system.json':
-      '''
+  'mylib|lib/design-system.json': '''
 {
   "colors": {
     "withAlpha": "#aabbccdd",
