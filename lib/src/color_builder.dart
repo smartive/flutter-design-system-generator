@@ -10,7 +10,7 @@ class ColorBuilder extends Builder {
     final json = jsonDecode(content) as Map<String, dynamic>;
     final output = buildStep.allowedOutputs.first;
 
-    final colors = json.containsKey('screens')
+    final colors = json.containsKey('colors')
         ? (_parseColors(json['colors']).toList(growable: false)
           ..sort((a, b) => a.name.compareTo(b.name)))
         : _default;
@@ -18,6 +18,11 @@ class ColorBuilder extends Builder {
     for (final color in colors) {
       if (!color.isValid) {
         log.warning('Color ${color.name} is not valid 6 or 8 digit hex.');
+      }
+
+      if (!color.isNameValid) {
+        log.info(
+            'Color ${color.name} does not start with character, it will be prefixed with "color".');
       }
     }
 
@@ -42,8 +47,7 @@ String _source(Iterable<_DesignSystemColor> colors) =>
 import 'dart:ui';
 
 ${_class(colors)}
-${_enum(colors)}
-''';
+${_enum(colors)}''';
 
 String _class(Iterable<_DesignSystemColor> colors) => '''
 class AppColors {
@@ -51,15 +55,15 @@ class AppColors {
 
 ${colors.map((e) => [
           if (!e.isValid)
-            '  // ${e.name} contains a non-valid 6 or 8 char hex string ("${e.hex}").',
-          '  static const ${e.name} = Color(0x${e.colorHex});'
+            '  // ${e.validName} contains a non-valid 6 or 8 char hex string ("${e.hex}").',
+          '  static const ${e.validName} = Color(0x${e.colorHex});'
         ].join('\n')).join('\n')}
 }
 ''';
 
 String _enum(Iterable<_DesignSystemColor> colors) => '''
 enum AppColor {
-${colors.map((e) => '  ${e.name}(AppColors.${e.name})').join(',\n')};
+${colors.map((e) => '  ${e.validName}(AppColors.${e.validName})').join(',\n')};
 
   const AppColor(this.color);
 
@@ -114,4 +118,8 @@ class _DesignSystemColor {
 
     return '${hex.substring(7, 9)}${hex.substring(1, 7)}';
   }
+
+  bool get isNameValid => name.startsWith(RegExp(r'[A-Za-z]'));
+
+  String get validName => isNameValid ? name : 'color$name';
 }
