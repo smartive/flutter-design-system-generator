@@ -43,8 +43,7 @@ String _source(Iterable<_DesignSystemSpatial> spatials) =>
 import 'package:flutter/widgets.dart';
 
 ${_class(spatials)}
-${_enum(spatials)}
-''';
+${_enum(spatials)}''';
 
 String _class(Iterable<_DesignSystemSpatial> spatials) => '''
 class AppSpatials {
