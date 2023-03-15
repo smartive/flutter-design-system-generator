@@ -1,8 +1,67 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://TODO",
+  "$id": "https://github.com/smartive/flutter-design-system-generator/...TODO",
   "title": "Design System Configuration",
   "description": "Configuration for the design_system_generator (build_runner).",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "colors": { "$ref": "#/$defs/color" },
+    "screens": {
+      "title": "Screen Sizes",
+      "description": "A definition of the screen sizes. This will create the breakpoints and the responsive helper.",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "spacings": {
+      "title": "Spatial Values",
+      "description": "A definition spatials (spacings).",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "type": "integer",
+          "multipleOf": 1
+        }
+      }
+    },
+    "borderRadius": {
+      "title": "Border Radii",
+      "description": "A map of border radius values.",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$defs": {
+    "color": {
+      "title": "Color",
+      "description": "A definition of a color (hex) or a color palette (map of colors).",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+            },
+            {
+              "$ref": "#/$defs/color"
+            }
+          ]
+        }
+      }
+    }
+  }
 }

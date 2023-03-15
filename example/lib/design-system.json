@@ -17,7 +17,7 @@
   "spacings": {
     "small": 10,
     "medium": 20,
-    "big": 30
+    "big": -30
   },
   "borderRadius": {
     "normal": 8,
