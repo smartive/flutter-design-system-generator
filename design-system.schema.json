@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/smartive/flutter-design-system-generator/...TODO",
+  "$id": "https://github.com/smartive/flutter-design-system-generator/blob/main/design-system.schema.json",
   "title": "Design System Configuration",
   "description": "Configuration for the design_system_generator (build_runner).",
   "type": "object",
