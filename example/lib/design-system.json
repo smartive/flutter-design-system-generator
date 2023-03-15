@@ -1,6 +1,26 @@
 {
+  "$schema": "../../design-system.schema.json",
+  "colors": {
+    "orange": {
+      "DEFAULT": "#FFA500",
+      "light": "#FFDAB9",
+      "dark": "#FF8C00"
+    },
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "halfTransparentBlue": "#0000FF80"
+  },
+  "screens": {
+    "medium": 700,
+    "big": 1200
+  },
+  "spacings": {
+    "small": 10,
+    "medium": 20,
+    "big": 30
+  },
   "borderRadius": {
-    "1": 15,
-    "2": 30
+    "normal": 8,
+    "full": 9999
   }
 }

@@ -44,8 +44,7 @@ import 'package:flutter/widgets.dart';
 
 ${_class(screens)}
 ${_enum(screens)}
-${_responsiveHelper(screens)}
-''';
+${_responsiveHelper(screens)}''';
 
 String _class(Iterable<_DesignSystemScreen> screens) => '''
 class AppBreakpoints {
@@ -84,7 +83,7 @@ ${screens.map((e) => '  T? ${e.validName},').join('\n')}
 ${screens.toList().reversed.map((e) => '    AppBreakpoints.${e.validName}: ${e.validName},').join('\n')}
   };
   return values.entries
-      .skipWhile((e) => e.key < width)
+      .skipWhile((e) => e.key > width)
       .map((e) => e.value)
       .firstWhere((e) => e != null, orElse: () => defaultValue) as T;
 }
