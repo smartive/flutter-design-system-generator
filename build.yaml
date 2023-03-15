@@ -20,11 +20,22 @@ builders:
       generate_for:
         include:
           - lib/design-system.json
-  
+
   screenBuilder:
     import: 'package:design_system_generator/builder.dart'
     builder_factories: ['screenBuilder']
     build_extensions: { 'design-system.json': ['ui/identity/screens.g.dart'] }
+    build_to: source
+    auto_apply: root_package
+    defaults:
+      generate_for:
+        include:
+          - lib/design-system.json
+
+  borderRadiusBuilder:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['borderRadiusBuilder']
+    build_extensions: { 'design-system.json': ['ui/identity/border_radii.g.dart'] }
     build_to: source
     auto_apply: root_package
     defaults:
