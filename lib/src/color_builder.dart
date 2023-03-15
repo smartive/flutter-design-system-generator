@@ -10,10 +10,10 @@ class ColorBuilder extends Builder {
     final json = jsonDecode(content) as Map<String, dynamic>;
     final output = buildStep.allowedOutputs.first;
 
-    final colors = _parseColors(
-            json['colors'] ?? const [_DesignSystemColor('dummy', '#000000')])
-        .toList(growable: false)
-      ..sort((a, b) => a.name.compareTo(b.name));
+    final colors = json.containsKey('screens')
+        ? (_parseColors(json['colors']).toList(growable: false)
+          ..sort((a, b) => a.name.compareTo(b.name)))
+        : _default;
 
     for (final color in colors) {
       if (!color.isValid) {
@@ -84,6 +84,12 @@ Iterable<_DesignSystemColor> _parseColors(Map<String, dynamic> colors,
     }
   }
 }
+
+const _default = [
+  _DesignSystemColor('black', '#000000'),
+  _DesignSystemColor('white', '#FFFFFF'),
+  _DesignSystemColor('transparent', '#00000000'),
+];
 
 class _DesignSystemColor {
   final String name;

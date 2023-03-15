@@ -1,22 +1,3 @@
 {
-  "$schema": "../../design-system.schema.json",
-  "colors": {
-    "orange": {
-      "DEFAULT": "#ef4444",
-      "50": "#fff7ed",
-      "100": "#fee2e2",
-      "200": "#fecaca",
-      "300": "#fca5a5",
-      "400": "#f87171",
-      "500": "#ef4444",
-      "600": "#dc2626",
-      "700": "#b91c1c",
-      "800": "#991b1b",
-      "900": "#7f1d1d"
-    },
-    "blue": "#06b6d4",
-    "prettytransparentblue": "#06b6d440",
-    "transparent": "#00000000",
-    "semiTransparentBlack": "#00000080"
-  }
+  "$schema": "../../design-system.schema.json"
 }
