@@ -1,39 +1,30 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Design System Generator
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+This generator (or builder, since it runs with the dart build runner)
+allows you to generate a design system for your project.
+You can use it to generate design tokens based on a JSON configuration.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+The configuration can be viewed at [Design System JSON Schema](./design-system.schema.json).
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The current version is pretty static (file-wise). The design system json **must**
+be under `lib/design-system.json`, otherwise nothing gets generated. Furthermore,
+the results are all created in `lib/ui/identity/*`.
 
-## Features
+The generator creates the following elements:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- Colors
+- Border Radii
+- Spatials (spacing)
+- Screensizes (Breakpoints) and a responsive helper function
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Refer to the [example](./example/example.md) to see how to use the generator.
 
-```dart
-const like = 'sample';
-```
+Summary:
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+- Create a `design-system.json` file in your `lib` folder
+- Configure your design system to your wishes
+  (add `"$schema": "https://github.com/smartive/flutter-design-system-generator/blob/main/design-system.schema.json"`) to the start to get
+  JSON schema validation
+- Run `flutter pub run build_runner build` to generate the design system

@@ -1,1 +1,46 @@
-TODO
+# Using the design system generator
+
+To use the design system generator, you need to install it as a dev
+dependency along with the `build_runner` package.
+
+`flutter pub install -d build_runner design_system_generator`.
+
+Then, you need to create a `design-system.json` file in your `lib` folder.
+There is a json schema to enable autocompletion and schema validation for
+your configuration file.
+
+After you have created your configuration file, you can run the generator
+with `flutter pub run build_runner build --delete-conflicting-outputs`.
+
+Note that colors are in the format `#RRGGBB` or `#RRGGBBAA` (with alpha).
+
+## Example Configuration
+
+```json
+{
+  "$schema": "https://github.com/smartive/flutter-design-system-generator/blob/main/design-system.schema.json",
+  "colors": {
+    "orange": {
+      "DEFAULT": "#FFA500",
+      "light": "#FFDAB9",
+      "dark": "#FF8C00"
+    },
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "halfTransparentBlue": "#0000FF80"
+  },
+  "screens": {
+    "medium": 700,
+    "big": 1200
+  },
+  "spacings": {
+    "small": 10,
+    "medium": 20,
+    "big": -30
+  },
+  "borderRadius": {
+    "normal": 8,
+    "full": 9999
+  }
+}
+```
