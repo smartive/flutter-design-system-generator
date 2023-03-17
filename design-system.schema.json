@@ -10,6 +10,7 @@
       "title": "Screen Sizes",
       "description": "A definition of the screen sizes. This will create the breakpoints and the responsive helper.",
       "type": "object",
+      "minProperties": 1,
       "additionalProperties": false,
       "patternProperties": {
         "^[a-zA-Z]+$": {
@@ -22,6 +23,7 @@
       "title": "Spatial Values",
       "description": "A definition spatials (spacings).",
       "type": "object",
+      "minProperties": 1,
       "additionalProperties": false,
       "patternProperties": {
         "^[a-zA-Z]+$": {
@@ -34,6 +36,7 @@
       "title": "Border Radii",
       "description": "A map of border radius values.",
       "type": "object",
+      "minProperties": 1,
       "additionalProperties": false,
       "patternProperties": {
         "^[a-zA-Z]+$": {
@@ -48,6 +51,7 @@
       "title": "Color",
       "description": "A definition of a color (hex) or a color palette (map of colors).",
       "type": "object",
+      "minProperties": 1,
       "additionalProperties": false,
       "patternProperties": {
         "^[a-zA-Z]+$": {
