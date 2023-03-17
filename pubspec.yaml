@@ -1,5 +1,12 @@
 name: design_system_generator
-description: A starting point for Dart libraries or applications.
+description: |
+  A generator for design system tokens, build from a json configuration for dart/flutter.
+  Generates colors, spatials, breakpoints, and other useful elements from a configuration.
+
+issue_tracker: https://github.com/smartive/flutter-design-system-generator/issues
+homepage: https://github.com/smartive/flutter-design-system-generator
+repository: https://github.com/smartive/flutter-design-system-generator.git
+
 version: 0.0.0
 
 environment:
