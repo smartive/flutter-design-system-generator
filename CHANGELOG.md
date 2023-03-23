@@ -1,3 +1,22 @@
+# [2.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v1.0.0...v2.0.0) (2023-03-23)
+
+
+### Features
+
+* create CLI for generation. ([#2](https://github.com/smartive/flutter-design-system-generator/issues/2)) ([b08c266](https://github.com/smartive/flutter-design-system-generator/commit/b08c266b748edf9a8a7b9abebae694e4eb9f9fec))
+
+
+### BREAKING CHANGES
+
+* since the dart build
+system is not as dynamic as it should be for
+this usecase, using a builder is not
+sufficient. Now a CLI executable
+is used to find and parse the design system
+configuration and then generate the
+specific design token files according to
+the configuration.
+
 # 1.0.0 (2023-03-17)
 
 
