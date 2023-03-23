@@ -5,7 +5,26 @@
   "description": "Configuration for the design_system_generator (build_runner).",
   "type": "object",
   "properties": {
-    "colors": { "$ref": "#/$defs/color" },
+    "colors": {
+      "title": "Colors",
+      "description": "The definition of a color (hex) or a color palette (map of colors).",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+            },
+            {
+              "$ref": "#/$defs/color"
+            }
+          ]
+        }
+      }
+    },
     "screens": {
       "title": "Screen Sizes",
       "description": "A definition of the screen sizes. This will create the breakpoints and the responsive helper.",
@@ -44,6 +63,45 @@
           "minimum": 0
         }
       }
+    },
+    "output": {
+      "title": "Output Configuration",
+      "description": "The configuration for the output of the CLI/generator tool.",
+      "type": "object",
+      "default": {
+        "basePath": "lib/ui/identity",
+        "colorFile": "colors.g.dart",
+        "radiiFile": "border_radii.g.dart",
+        "screenFile": "screens.g.dart",
+        "spacingFile": "spatials.g.dart"
+      },
+      "properties": {
+        "basePath": {
+          "description": "The general basePath for all the output files.",
+          "default": "lib/ui/identity",
+          "type": "string"
+        },
+        "colorFile": {
+          "description": "Output configuration for the colors file (is joined with basePath).",
+          "default": "colors.g.dart",
+          "type": "string"
+        },
+        "radiiFile": {
+          "description": "Output configuration for the radii file (is joined with basePath).",
+          "default": "border_radii.g.dart",
+          "type": "string"
+        },
+        "screenFile": {
+          "description": "Output configuration for the screens file (is joined with basePath).",
+          "default": "screens.g.dart",
+          "type": "string"
+        },
+        "spacingFile": {
+          "description": "Output configuration for the spacings file (is joined with basePath).",
+          "default": "spatials.g.dart",
+          "type": "string"
+        }
+      }
     }
   },
   "$defs": {
@@ -54,7 +112,7 @@
       "minProperties": 1,
       "additionalProperties": false,
       "patternProperties": {
-        "^[a-zA-Z]+$": {
+        "^[a-zA-Z0-9]+$": {
           "oneOf": [
             {
               "type": "string",
