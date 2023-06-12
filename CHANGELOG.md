@@ -1,3 +1,19 @@
+# [3.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v2.0.0...v3.0.0) (2023-06-12)
+
+
+### Features
+
+* upgrade to new flutter app and improve code generation. ([#3](https://github.com/smartive/flutter-design-system-generator/issues/3)) ([44d4e1e](https://github.com/smartive/flutter-design-system-generator/commit/44d4e1e5ad35206e019c05be6da418c4e6ea790e))
+
+
+### BREAKING CHANGES
+
+* Flutter 2.x is not supported
+anymore. This upgrades the generator to SDK
+>= 3.x && < 4.x. Projects that use the generator
+need to update their Flutter project to use SDK
+>= 3.x.
+
 # [2.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v1.0.0...v2.0.0) (2023-03-23)
 
 
