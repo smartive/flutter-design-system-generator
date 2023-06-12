@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class AppBreakpoints {
+final class AppBreakpoints {
   AppBreakpoints._();
 
   /// sm (640.0px) - media query width >= 640.0px
@@ -39,13 +39,16 @@ enum AppBreakpoint {
 
 T responsiveValue<T>(
   T defaultValue, {
+  BuildContext? context,
   T? sm,
   T? md,
   T? lg,
   T? xl,
 }) {
-  final width =
-      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  final width = context != null
+      ? View.of(context).physicalSize.width
+      : WidgetsBinding
+          .instance.platformDispatcher.views.first.physicalSize.width;
   final values = {
     AppBreakpoints.xl: xl,
     AppBreakpoints.lg: lg,
@@ -59,8 +62,6 @@ T responsiveValue<T>(
 }
 
 void main() {
-  final binding = TestWidgetsFlutterBinding.ensureInitialized();
-
   final testCases = <double, String>{
     500: 'xs',
     650: 'sm',
@@ -73,8 +74,10 @@ void main() {
     testWidgets(
         'should return the correct value (${testCase.value}) for the screen size (${testCase.key})',
         (widgetTester) async {
-      binding.window.physicalSizeTestValue = Size(testCase.key, 800);
-      binding.window.devicePixelRatioTestValue = 1;
+      addTearDown(widgetTester.view.reset);
+
+      widgetTester.view.devicePixelRatio = 1;
+      widgetTester.view.physicalSize = Size(testCase.key, 800);
 
       await widgetTester.pumpWidget(MaterialApp(
           home: Scaffold(
@@ -82,6 +85,29 @@ void main() {
                   child: Center(
                       child: Text(responsiveValue('xs',
                           sm: 'sm', md: 'md', lg: 'lg', xl: 'xl')))))));
+
+      expect(find.text(testCase.value), findsOneWidget);
+    });
+
+    testWidgets(
+        'should return the correct value (${testCase.value}) for the screen size (${testCase.key}) with context',
+        (widgetTester) async {
+      addTearDown(widgetTester.view.reset);
+
+      widgetTester.view.devicePixelRatio = 1;
+      widgetTester.view.physicalSize = Size(testCase.key, 800);
+
+      await widgetTester.pumpWidget(MaterialApp(
+          home: Scaffold(
+              body: SafeArea(
+                  child: Center(
+                      child: Builder(
+                          builder: (context) => Text(responsiveValue('xs',
+                              context: context,
+                              sm: 'sm',
+                              md: 'md',
+                              lg: 'lg',
+                              xl: 'xl'))))))));
 
       expect(find.text(testCase.value), findsOneWidget);
     });

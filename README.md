@@ -24,4 +24,5 @@ Summary:
 - Configure your design system to your wishes
   (add `"$schema": "https://github.com/smartive/flutter-design-system-generator/blob/main/design-system.schema.json"`)
   to the start to get JSON schema validation
-- Run `flutter pub run design_system_generator generate` to generate the design system
+- Install the design system generator with `flutter pub add dev:design_system_generator`
+- Run `dart run design_system_generator generate` to generate the design system

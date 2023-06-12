@@ -20,7 +20,7 @@ const _radiusTestCases = [
 
 import 'package:flutter/widgets.dart';
 
-class AppBorderRadii {
+final class AppBorderRadii {
   AppBorderRadii._();
 
   /// none (0.0px)
@@ -92,7 +92,7 @@ enum AppBorderRadius {
 
 import 'package:flutter/widgets.dart';
 
-class AppBorderRadii {
+final class AppBorderRadii {
   AppBorderRadii._();
 
   /// first (15.0px)
@@ -148,7 +148,7 @@ enum AppBorderRadius {
 
 import 'package:flutter/widgets.dart';
 
-class AppBorderRadii {
+final class AppBorderRadii {
   AppBorderRadii._();
 
   /// radius1 (15.0px)
@@ -203,7 +203,7 @@ const _colorTestCases = [
 
 import 'dart:ui';
 
-class AppColors {
+final class AppColors {
   AppColors._();
 
   static const black = Color(0xFF000000);
@@ -242,7 +242,7 @@ enum AppColor {
 
 import 'dart:ui';
 
-class AppColors {
+final class AppColors {
   AppColors._();
 
   static const blue = Color(0xFF0000FF);
@@ -288,7 +288,7 @@ enum AppColor {
 
 import 'dart:ui';
 
-class AppColors {
+final class AppColors {
   AppColors._();
 
   static const dark100 = Color(0xFFFFB6C1);
@@ -330,7 +330,7 @@ enum AppColor {
 
 import 'dart:ui';
 
-class AppColors {
+final class AppColors {
   AppColors._();
 
   static const color = Color(0xFFFFB6C1);
@@ -367,7 +367,7 @@ enum AppColor {
 
 import 'dart:ui';
 
-class AppColors {
+final class AppColors {
   AppColors._();
 
   // foo contains a non-valid 6 or 8 char hex string ("bar").
@@ -404,7 +404,7 @@ enum AppColor {
 
 import 'dart:ui';
 
-class AppColors {
+final class AppColors {
   AppColors._();
 
   static const withAlpha = Color(0xddaabbcc);
@@ -438,7 +438,7 @@ const _screenTestCases = [
 
 import 'package:flutter/widgets.dart';
 
-class AppBreakpoints {
+final class AppBreakpoints {
   AppBreakpoints._();
 
   /// sm (640.0px) - media query width >= 640.0px
@@ -468,15 +468,31 @@ enum AppBreakpoint {
   int get integerWidth => width.toInt();
 }
 
+/// Return a specific value based on the current window/view size.
+/// If a [context] is provided, `View.of(context)` determines the
+/// size, otherwise the platformDispatcher is used.
+///
+/// Returns the biggest possible value of the defined breakpoints.
+/// If the screen is smaller than the smallest breakpoint, [defaultValue]
+/// is returned.
+///
+/// Breakpoints:
+/// - sm (640.0px)
+/// - md (768.0px)
+/// - lg (1024.0px)
+/// - xl (1280.0px)
 T responsiveValue<T>(
   T defaultValue, {
+  BuildContext? context,
   T? sm,
   T? md,
   T? lg,
   T? xl,
 }) {
-  final width =
-      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  final width = context != null
+      ? View.of(context).physicalSize.width
+      : WidgetsBinding
+          .instance.platformDispatcher.views.first.physicalSize.width;
   final values = {
     AppBreakpoints.xl: xl,
     AppBreakpoints.lg: lg,
@@ -504,7 +520,7 @@ T responsiveValue<T>(
 
 import 'package:flutter/widgets.dart';
 
-class AppBreakpoints {
+final class AppBreakpoints {
   AppBreakpoints._();
 
   /// tablet (200.0px) - media query width >= 200.0px
@@ -526,13 +542,27 @@ enum AppBreakpoint {
   int get integerWidth => width.toInt();
 }
 
+/// Return a specific value based on the current window/view size.
+/// If a [context] is provided, `View.of(context)` determines the
+/// size, otherwise the platformDispatcher is used.
+///
+/// Returns the biggest possible value of the defined breakpoints.
+/// If the screen is smaller than the smallest breakpoint, [defaultValue]
+/// is returned.
+///
+/// Breakpoints:
+/// - tablet (200.0px)
+/// - desktop (440.0px)
 T responsiveValue<T>(
   T defaultValue, {
+  BuildContext? context,
   T? tablet,
   T? desktop,
 }) {
-  final width =
-      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  final width = context != null
+      ? View.of(context).physicalSize.width
+      : WidgetsBinding
+          .instance.platformDispatcher.views.first.physicalSize.width;
   final values = {
     AppBreakpoints.desktop: desktop,
     AppBreakpoints.tablet: tablet,
@@ -558,7 +588,7 @@ T responsiveValue<T>(
 
 import 'package:flutter/widgets.dart';
 
-class AppBreakpoints {
+final class AppBreakpoints {
   AppBreakpoints._();
 
   /// screen1 (200.0px) - media query width >= 200.0px
@@ -580,13 +610,27 @@ enum AppBreakpoint {
   int get integerWidth => width.toInt();
 }
 
+/// Return a specific value based on the current window/view size.
+/// If a [context] is provided, `View.of(context)` determines the
+/// size, otherwise the platformDispatcher is used.
+///
+/// Returns the biggest possible value of the defined breakpoints.
+/// If the screen is smaller than the smallest breakpoint, [defaultValue]
+/// is returned.
+///
+/// Breakpoints:
+/// - screen1 (200.0px)
+/// - screen2 (440.0px)
 T responsiveValue<T>(
   T defaultValue, {
+  BuildContext? context,
   T? screen1,
   T? screen2,
 }) {
-  final width =
-      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  final width = context != null
+      ? View.of(context).physicalSize.width
+      : WidgetsBinding
+          .instance.platformDispatcher.views.first.physicalSize.width;
   final values = {
     AppBreakpoints.screen2: screen2,
     AppBreakpoints.screen1: screen1,
@@ -609,7 +653,7 @@ const _spatialTestCases = [
 
 import 'package:flutter/widgets.dart';
 
-class AppSpatials {
+final class AppSpatials {
   AppSpatials._();
 
   /// spatial0 (0.0px)
@@ -800,7 +844,7 @@ enum AppSpatial {
 
 import 'package:flutter/widgets.dart';
 
-class AppSpatials {
+final class AppSpatials {
   AppSpatials._();
 
   /// a (2.0px)
@@ -855,7 +899,7 @@ enum AppSpatial {
 
 import 'package:flutter/widgets.dart';
 
-class AppSpatials {
+final class AppSpatials {
   AppSpatials._();
 
   /// spatial1 (2.0px)

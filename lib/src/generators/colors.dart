@@ -13,7 +13,7 @@ ${_class(colors)}
 ${_enum(colors)}''';
 
 String _class(Iterable<DesignSystemColor> colors) => '''
-class AppColors {
+final class AppColors {
   AppColors._();
 
 ${colors.map((e) => [

@@ -13,7 +13,7 @@ ${_class(spatials)}
 ${_enum(spatials)}''';
 
 String _class(Iterable<DesignSystemSpatial> spatials) => '''
-class AppSpatials {
+final class AppSpatials {
   AppSpatials._();
 
 ${spatials.map((e) => [

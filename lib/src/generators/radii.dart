@@ -13,7 +13,7 @@ ${_class(radii)}
 ${_enum(radii)}''';
 
 String _class(Iterable<DesignSystemBorderRadius> radii) => '''
-class AppBorderRadii {
+final class AppBorderRadii {
   AppBorderRadii._();
 
 ${radii.map((e) => [

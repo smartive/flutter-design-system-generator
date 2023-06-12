@@ -16,7 +16,7 @@ jobs:
           submodules: true
       - uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: stable
       - run: flutter pub get
       - run: dart format --fix --set-exit-if-changed .
       - run: flutter analyze
