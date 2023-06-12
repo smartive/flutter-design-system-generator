@@ -18,7 +18,7 @@ ${_responsiveHelper(asc)}''';
 }
 
 String _class(Iterable<DesignSystemScreen> screens) => '''
-class AppBreakpoints {
+final class AppBreakpoints {
   AppBreakpoints._();
 
 ${screens.map((e) => [
@@ -44,12 +44,25 @@ ${screens.map((e) => [
 ''';
 
 String _responsiveHelper(Iterable<DesignSystemScreen> screens) => '''
+/// Return a specific value based on the current window/view size.
+/// If a [context] is provided, `View.of(context)` determines the
+/// size, otherwise the platformDispatcher is used.
+///
+/// Returns the biggest possible value of the defined breakpoints.
+/// If the screen is smaller than the smallest breakpoint, [defaultValue]
+/// is returned.
+///
+/// Breakpoints:
+${screens.map((e) => '/// - ${e.validName} (${e.width}px)').join('\n')}
 T responsiveValue<T>(
   T defaultValue, {
+  BuildContext? context,
 ${screens.map((e) => '  T? ${e.validName},').join('\n')}
 }) {
-  final width =
-      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  final width = context != null
+      ? View.of(context).physicalSize.width
+      : WidgetsBinding
+          .instance.platformDispatcher.views.first.physicalSize.width;
   final values = {
 ${(screens.toList()..sort((a, b) => b.width.compareTo(a.width))).map((e) => '    AppBreakpoints.${e.validName}: ${e.validName},').join('\n')}
   };
