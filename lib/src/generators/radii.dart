@@ -1,7 +1,8 @@
 import '../config/radius.dart';
 
-String radiiGenerator(Iterable<DesignSystemBorderRadius> radii) =>
-    '''// GENERATED CODE - DO NOT MODIFY BY HAND
+String radiiGenerator(Iterable<DesignSystemBorderRadius> radii) => radii.isEmpty
+    ? ''
+    : '''// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // Design System Generator - Border Radii

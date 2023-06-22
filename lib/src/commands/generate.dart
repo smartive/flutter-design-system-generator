@@ -60,6 +60,11 @@ class Generate extends Command {
 
     Future generateFile<T>(String Function(Iterable<T>) generator,
         Iterable<T> data, File destination) async {
+      if (data.isEmpty) {
+        print('No data for $destination, skipping.');
+        return;
+      }
+
       print('Write generated code to $destination.');
 
       if (!await destination.exists()) {

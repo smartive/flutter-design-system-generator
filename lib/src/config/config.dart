@@ -47,20 +47,30 @@ class DesignSystemConfig {
 
     return DesignSystemConfig._(
       colors: json.containsKey('colors')
-          ? (DesignSystemColor.parse(json['colors']).toList(growable: false)
-            ..sort(
-              (a, b) => a.name.compareTo(b.name),
-            ))
+          ? json['colors'] is bool
+              ? List.empty()
+              : (DesignSystemColor.parse(json['colors']).toList(growable: false)
+                ..sort(
+                  (a, b) => a.name.compareTo(b.name),
+                ))
           : DesignSystemColor.defaultValue,
       screens: json.containsKey('screens')
-          ? DesignSystemScreen.parse(json['screens']).toList(growable: false)
+          ? json['screens'] is bool
+              ? List.empty()
+              : DesignSystemScreen.parse(json['screens'])
+                  .toList(growable: false)
           : DesignSystemScreen.defaultValue,
       spatials: json.containsKey('spacings')
-          ? DesignSystemSpatial.parse(json['spacings']).toList(growable: false)
+          ? json['spacings'] is bool
+              ? List.empty()
+              : DesignSystemSpatial.parse(json['spacings'])
+                  .toList(growable: false)
           : DesignSystemSpatial.defaultValue,
       radii: json.containsKey('borderRadius')
-          ? DesignSystemBorderRadius.parse(json['borderRadius'])
-              .toList(growable: false)
+          ? json['borderRadius'] is bool
+              ? List.empty()
+              : DesignSystemBorderRadius.parse(json['borderRadius'])
+                  .toList(growable: false)
           : DesignSystemBorderRadius.defaultValue,
       colorsFile: File(path.join(
           basePath, json['output']?['colorFile'] ?? _defaultColorsFile)),

@@ -191,6 +191,7 @@ enum AppBorderRadius {
       );
 }
 '''),
+  _TestCase('disabled', '{"borderRadius": false}', ''),
 ];
 
 const _colorTestCases = [
@@ -426,6 +427,45 @@ enum AppColor {
           orElse: orElse == null ? null : () => orElse);
 }
 '''),
+  _TestCase('colors with tripple', '''{
+  "colors": {
+    "black": "#000",
+    "mix": "#abc",
+    "white": "#fff"
+  }
+}''', '''// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Design System Generator - Colors
+// **************************************************************************
+
+import 'dart:ui';
+
+final class AppColors {
+  AppColors._();
+
+  static const black = Color(0xFF000000);
+  static const mix = Color(0xFFaabbcc);
+  static const white = Color(0xFFffffff);
+}
+
+enum AppColor {
+  black(AppColors.black),
+  mix(AppColors.mix),
+  white(AppColors.white);
+
+  const AppColor(this.color);
+
+  final Color color;
+
+  Color withOpacity(double opacity) => color.withOpacity(opacity);
+
+  static AppColor fromColor(Color color, [AppColor? orElse]) =>
+      AppColor.values.firstWhere((e) => e.color == color,
+          orElse: orElse == null ? null : () => orElse);
+}
+'''),
+  _TestCase('disabled', '{"colors": false}', ''),
 ];
 
 const _screenTestCases = [
@@ -641,6 +681,7 @@ T responsiveValue<T>(
       .firstWhere((e) => e != null, orElse: () => defaultValue) as T;
 }
 '''),
+  _TestCase('disabled', '{"screens": false}', ''),
 ];
 
 const _spatialTestCases = [
@@ -939,4 +980,5 @@ enum AppSpatial {
   EdgeInsets get insetsRight => EdgeInsets.only(right: value);
 }
 '''),
+  _TestCase('disabled', '{"spacings": false}', ''),
 ];

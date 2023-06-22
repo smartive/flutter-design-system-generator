@@ -1,7 +1,8 @@
 import '../config/color.dart';
 
-String colorGenerator(Iterable<DesignSystemColor> colors) =>
-    '''// GENERATED CODE - DO NOT MODIFY BY HAND
+String colorGenerator(Iterable<DesignSystemColor> colors) => colors.isEmpty
+    ? ''
+    : '''// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // Design System Generator - Colors
