@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v3.0.0...v3.1.0) (2023-06-22)
+
+
+### Features
+
+* allow "false" as constant to disable specific branch of generation ([#4](https://github.com/smartive/flutter-design-system-generator/issues/4)) ([273205d](https://github.com/smartive/flutter-design-system-generator/commit/273205d18619bb26271fd730d51def1f02946592))
+
 # [3.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v2.0.0...v3.0.0) (2023-06-12)
 
 
