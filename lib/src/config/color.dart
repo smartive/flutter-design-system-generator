@@ -26,11 +26,19 @@ class DesignSystemColor {
   String toString() => 'Color $name: $hex';
 
   bool get isValid =>
-      RegExp(r'^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$').hasMatch(hex);
+      RegExp(r'^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$')
+          .hasMatch(hex);
 
   String get colorHex {
     if (!isValid) {
       return '00000000';
+    }
+
+    if (hex.length == 4) {
+      final a = hex.substring(1, 2);
+      final b = hex.substring(2, 3);
+      final c = hex.substring(3, 4);
+      return 'FF$a$a$b$b$c$c';
     }
 
     if (hex.length == 7) {

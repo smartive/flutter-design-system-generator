@@ -1,6 +1,10 @@
 import '../config/screen.dart';
 
 String screenGenerator(Iterable<DesignSystemScreen> screens) {
+  if (screens.isEmpty) {
+    return '';
+  }
+
   final asc = screens.toList(growable: false)
     ..sort((a, b) => a.width.compareTo(b.width));
 

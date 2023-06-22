@@ -1,7 +1,9 @@
 import '../config/spatial.dart';
 
 String spatialGenerator(Iterable<DesignSystemSpatial> spatials) =>
-    '''// GENERATED CODE - DO NOT MODIFY BY HAND
+    spatials.isEmpty
+        ? ''
+        : '''// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // Design System Generator - Spatials
