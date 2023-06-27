@@ -13,11 +13,15 @@ class DesignSystemColor {
   static Iterable<DesignSystemColor> parse(Map<String, dynamic> colors,
       [String prefix = '']) sync* {
     for (final e in colors.entries) {
-      final name = e.key.replaceAll('DEFAULT', '');
+      var name = e.key.replaceAll('DEFAULT', '');
+      if (prefix != '' && name.length > 1) {
+        name = name[0].toUpperCase() + name.substring(1);
+      }
+
       if (e.value is String) {
         yield DesignSystemColor('$prefix$name', e.value);
       } else if (e.value is Map<String, dynamic>) {
-        yield* parse(e.value as Map<String, dynamic>, name);
+        yield* parse(e.value as Map<String, dynamic>, '$prefix$name');
       }
     }
   }

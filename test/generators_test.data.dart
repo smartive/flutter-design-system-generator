@@ -292,19 +292,19 @@ import 'dart:ui';
 final class AppColors {
   AppColors._();
 
-  static const dark100 = Color(0xFFFFB6C1);
-  static const dark50 = Color(0xFFFFC0CB);
   static const pink = Color(0xFF000000);
-  static const pinkbase = Color(0xFFFFC0CB);
-  static const pinklight = Color(0xFFFFB6C1);
+  static const pinkBase = Color(0xFFFFC0CB);
+  static const pinkDark100 = Color(0xFFFFB6C1);
+  static const pinkDark50 = Color(0xFFFFC0CB);
+  static const pinkLight = Color(0xFFFFB6C1);
 }
 
 enum AppColor {
-  dark100(AppColors.dark100),
-  dark50(AppColors.dark50),
   pink(AppColors.pink),
-  pinkbase(AppColors.pinkbase),
-  pinklight(AppColors.pinklight);
+  pinkBase(AppColors.pinkBase),
+  pinkDark100(AppColors.pinkDark100),
+  pinkDark50(AppColors.pinkDark50),
+  pinkLight(AppColors.pinkLight);
 
   const AppColor(this.color);
 

@@ -8,7 +8,13 @@
     },
     "white": "#FFFFFF",
     "black": "#000000",
-    "halfTransparentBlue": "#0000FF80"
+    "halfTransparentBlue": "#0000FF80",
+    "neutral": {
+      "100": {
+        "DEFAULT": "#F5F5F5",
+        "light": "#FFFFFF"
+      }
+    }
   },
   "screens": {
     "medium": 700,
