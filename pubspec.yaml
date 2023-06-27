@@ -7,7 +7,7 @@ issue_tracker: https://github.com/smartive/flutter-design-system-generator/issue
 homepage: https://github.com/smartive/flutter-design-system-generator
 repository: https://github.com/smartive/flutter-design-system-generator.git
 
-version: 3.1.0
+version: 3.1.1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

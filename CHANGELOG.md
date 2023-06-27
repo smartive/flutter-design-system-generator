@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/smartive/flutter-design-system-generator/compare/v3.1.0...v3.1.1) (2023-06-27)
+
+
+### Bug Fixes
+
+* **colors:** correctly attach prefixes and create camelCase names. ([2f854e8](https://github.com/smartive/flutter-design-system-generator/commit/2f854e80241305f933966f95085925c557d12880))
+
 # [3.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v3.0.0...v3.1.0) (2023-06-22)
 
 
