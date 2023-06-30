@@ -982,3 +982,141 @@ enum AppSpatial {
 '''),
   _TestCase('disabled', '{"spacings": false}', ''),
 ];
+
+const _typographyTestCases = [
+  _TestCase('default empty', _emptyDesignSystem, ''),
+  _TestCase('valid typography', '''{
+  "typography": {
+    "root": {
+      "family": "Arial",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 16,
+      "letterSpacing": 1.2,
+      "wordSpacing": 2.2
+    },
+    "partial": {
+      "family": "Arial",
+      "size": 16,
+      "letterSpacing": 1.2
+    }
+  }
+}''', '''// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Design System Generator - Text Styles & Typography
+// **************************************************************************
+
+import 'package:flutter/widgets.dart';
+
+final class AppTypographies {
+  AppTypographies._();
+
+  /// Text Style Definition root.
+  static const root = TextStyle(
+    fontFamily: 'Arial',
+    fontWeight: FontWeight.w400,
+    fontSize: 16.0,
+    height: (16.0 / 16.0),
+    letterSpacing: 1.2,
+    wordSpacing: 2.2,
+  );
+  /// Text Style Definition partial.
+  static const partial = TextStyle(
+    fontFamily: 'Arial',
+    fontSize: 16.0,
+    letterSpacing: 1.2,
+  );
+}
+
+enum AppTypography {
+  root(AppTypographies.root),
+  partial(AppTypographies.partial);
+
+  const AppTypography(this.textStyle);
+
+  final TextStyle textStyle;
+}
+'''),
+  _TestCase('valid namespaced colors', '''{
+  "typography": {
+    "display": {
+      "DEFAULT": {
+        "family": "Arial"
+      },
+      "1": {
+        "family": "Arial"
+      }
+    }
+  }
+}''', '''// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Design System Generator - Text Styles & Typography
+// **************************************************************************
+
+import 'package:flutter/widgets.dart';
+
+final class AppTypographies {
+  AppTypographies._();
+
+  /// Text Style Definition display.
+  static const display = TextStyle(
+    fontFamily: 'Arial',
+  );
+  /// Text Style Definition display1.
+  static const display1 = TextStyle(
+    fontFamily: 'Arial',
+  );
+}
+
+enum AppTypography {
+  display(AppTypographies.display),
+  display1(AppTypographies.display1);
+
+  const AppTypography(this.textStyle);
+
+  final TextStyle textStyle;
+}
+'''),
+  _TestCase('invalid named colors', '''{
+  "typography": {
+    "": {
+      "family": "Arial"
+    },
+    "1": {
+      "family": "Arial"
+    }
+  }
+}''', '''// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Design System Generator - Text Styles & Typography
+// **************************************************************************
+
+import 'package:flutter/widgets.dart';
+
+final class AppTypographies {
+  AppTypographies._();
+
+  /// Text Style Definition typo.
+  static const typo = TextStyle(
+    fontFamily: 'Arial',
+  );
+  /// Text Style Definition typo1.
+  static const typo1 = TextStyle(
+    fontFamily: 'Arial',
+  );
+}
+
+enum AppTypography {
+  typo(AppTypographies.typo),
+  typo1(AppTypographies.typo1);
+
+  const AppTypography(this.textStyle);
+
+  final TextStyle textStyle;
+}
+'''),
+  _TestCase('disabled', '{"typography": false}', ''),
+];

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
+import 'package:design_system_generator/src/generators/typography.dart';
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
 import 'package:path/path.dart' as path;
@@ -86,6 +87,7 @@ class Generate extends Command {
       generateFile(radiiGenerator, config.radii, config.radiiFile),
       generateFile(screenGenerator, config.screens, config.screensFile),
       generateFile(spatialGenerator, config.spatials, config.spatialsFile),
+      generateFile(typographyGenerator, config.typography, config.typoFile),
     ]);
   }
 }

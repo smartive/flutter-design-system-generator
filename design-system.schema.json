@@ -32,6 +32,33 @@
         }
       ]
     },
+    "typography": {
+      "title": "Typographies",
+      "description": "Definition for text styles. Either a style directly or a map of styles. By default, text styles are not created.",
+      "default": false,
+      "oneOf": [
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "patternProperties": {
+            "^(?!family|size|weight|lineHeight|letterSpacing|wordSpacing)[a-zA-Z][a-zA-Z0-9]*$": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/textStyle"
+                },
+                {
+                  "$ref": "#/$defs/typography"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "const": false
+        }
+      ]
+    },
     "screens": {
       "title": "Screen Sizes",
       "description": "A definition of the screen sizes. This will create the breakpoints and the responsive helper.",
@@ -99,7 +126,8 @@
         "colorFile": "colors.g.dart",
         "radiiFile": "border_radii.g.dart",
         "screenFile": "screens.g.dart",
-        "spacingFile": "spatials.g.dart"
+        "spacingFile": "spatials.g.dart",
+        "typoFile": "typography.g.dart"
       },
       "properties": {
         "basePath": {
@@ -126,6 +154,11 @@
           "description": "Output configuration for the spacings file (is joined with basePath).",
           "default": "spatials.g.dart",
           "type": "string"
+        },
+        "typoFile": {
+          "description": "Output configuration for the typography file (is joined with basePath).",
+          "default": "typography.g.dart",
+          "type": "string"
         }
       }
     }
@@ -146,6 +179,60 @@
             },
             {
               "$ref": "#/$defs/color"
+            }
+          ]
+        }
+      }
+    },
+    "textStyle": {
+      "title": "Text Style",
+      "description": "Effective text style definition.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "type": "string",
+          "description": "The font family of the text style (e.g. Roboto)."
+        },
+        "weight": {
+          "description": "The font weight of the text style (e.g. 100).",
+          "enum": [100, 200, 300, 400, 500, 600, 700, 800, 900]
+        },
+        "size": {
+          "description": "The font size of the text style (e.g. 16).",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "lineHeight": {
+          "description": "The line height of the text style (e.g. 24).",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "letterSpacing": {
+          "description": "The letter spacing (or 'kerning') of the text style (e.g. 0.5). This value may also be negative.",
+          "type": "number"
+        },
+        "wordSpacing": {
+          "description": "The word spacing of the text style (e.g. 15). This value may also be negative.",
+          "type": "number"
+        }
+      }
+    },
+    "typography": {
+      "title": "Typography",
+      "description": "A definition of a typography setting with font family and other settings OR a subobject.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(?!family|size|weight|lineHeight|letterSpacing|wordSpacing)[a-zA-Z0-9]+$": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/textStyle"
+            },
+            {
+              "$ref": "#/$defs/typography"
             }
           ]
         }
