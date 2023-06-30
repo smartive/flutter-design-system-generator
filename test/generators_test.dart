@@ -5,6 +5,7 @@ import 'package:design_system_generator/src/generators/colors.dart';
 import 'package:design_system_generator/src/generators/radii.dart';
 import 'package:design_system_generator/src/generators/screens.dart';
 import 'package:design_system_generator/src/generators/spatials.dart';
+import 'package:design_system_generator/src/generators/typography.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 part 'generators_test.data.dart';
@@ -60,6 +61,20 @@ void main() {
 
         final parsedConfig = DesignSystemConfig.fromJson(jsonDecode(input));
         final output = spatialGenerator(parsedConfig.spatials);
+
+        expect(output, expectedOutput);
+      });
+    }
+  });
+
+  group('TypographyGenerator -', () {
+    for (final testCase in _typographyTestCases) {
+      test('should generate correct code (${testCase.name})', () {
+        final input = testCase.input;
+        final expectedOutput = testCase.output;
+
+        final parsedConfig = DesignSystemConfig.fromJson(jsonDecode(input));
+        final output = typographyGenerator(parsedConfig.typography);
 
         expect(output, expectedOutput);
       });

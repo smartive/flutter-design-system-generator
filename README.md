@@ -11,6 +11,7 @@ The generator creates the following elements:
 - Border Radii
 - Spatials (spacing)
 - Screensizes (Breakpoints) and a responsive helper function
+- Text Styles (Typography)
 
 ## Usage
 

@@ -40,6 +40,21 @@ Note that colors are in the format `#RRGGBB` or `#RRGGBBAA` (with alpha).
   "borderRadius": {
     "normal": 8,
     "full": 9999
+  },
+  "typography": {
+    "root": {
+      "family": "Arial",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 16,
+      "letterSpacing": 1.2,
+      "wordSpacing": 2.2
+    },
+    "display": {
+      "1": {
+        "family": "Arial"
+      }
+    }
   }
 }
 ```
