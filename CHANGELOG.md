@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/smartive/flutter-design-system-generator/compare/v3.1.1...v3.2.0) (2023-06-30)
+
+
+### Features
+
+* add typography text style generator ([#5](https://github.com/smartive/flutter-design-system-generator/issues/5)) ([700a1c9](https://github.com/smartive/flutter-design-system-generator/commit/700a1c9ac0b23bb7e5f0b40d74bc54290b67e1c0))
+
 ## [3.1.1](https://github.com/smartive/flutter-design-system-generator/compare/v3.1.0...v3.1.1) (2023-06-27)
 
 
