@@ -25,7 +25,6 @@ abstract base class DesignSystemBuilder implements Builder {
         '**************************************************************************',
         'Design System Generator - $part',
         '*************************************************************************',
-        '',
       ]));
 
     if (outputLib.body.isEmpty) {

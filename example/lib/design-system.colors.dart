@@ -3,7 +3,6 @@
 // **************************************************************************
 // Design System Generator - colors
 // *************************************************************************
-//
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:ui' as _i1;

@@ -5,3 +5,31 @@ builders:
     build_extensions: { 'design-system.json': ['design-system.colors.dart'] }
     auto_apply: root_package
     build_to: source
+
+  spatials:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['spatialBuilder']
+    build_extensions: { 'design-system.json': ['design-system.spatials.dart'] }
+    auto_apply: root_package
+    build_to: source
+
+  radius:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['radiusBuilder']
+    build_extensions: { 'design-system.json': ['design-system.radii.dart'] }
+    auto_apply: root_package
+    build_to: source
+
+  typography:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['typographyBuilder']
+    build_extensions: { 'design-system.json': ['design-system.typography.dart'] }
+    auto_apply: root_package
+    build_to: source
+
+  screens:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['screenBuilder']
+    build_extensions: { 'design-system.json': ['design-system.screens.dart'] }
+    auto_apply: root_package
+    build_to: source
