@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:design_system_generator/src/config/config.dart';
-import 'package:design_system_generator/src/generators/colors.dart';
-import 'package:design_system_generator/src/generators/radii.dart';
-import 'package:design_system_generator/src/generators/screens.dart';
-import 'package:design_system_generator/src/generators/spatials.dart';
-import 'package:design_system_generator/src/generators/typography.dart';
+import 'package:design_system_generator/src/old/config/config.dart';
+import 'package:design_system_generator/src/old/generators/colors.dart';
+import 'package:design_system_generator/src/old/generators/radii.dart';
+import 'package:design_system_generator/src/old/generators/screens.dart';
+import 'package:design_system_generator/src/old/generators/spatials.dart';
+import 'package:design_system_generator/src/old/generators/typography.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 part 'generators_test.data.dart';

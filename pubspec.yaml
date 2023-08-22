@@ -14,13 +14,20 @@ environment:
 
 dependencies:
   args:
-  path:
+  build:
+  code_builder:
+  dart_style:
   glob:
+  json_annotation: ^4.8.1
+  path:
+  source_gen:
 
 dev_dependencies:
+  build_runner:
+  build_test:
   flutter:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  build_test:
+  json_serializable:
   lints:

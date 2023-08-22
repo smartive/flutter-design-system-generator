@@ -28,4 +28,13 @@ class DesignSystemScreen {
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isValid ? name : 'screen$name';
+
+  @override
+  // ignore: hash_and_equals
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemScreen &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          width == other.width;
 }

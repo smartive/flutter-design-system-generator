@@ -51,4 +51,18 @@ class DesignSystemTextStyle {
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isValid ? name : 'typo$name';
+
+  @override
+  // ignore: hash_and_equals
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemTextStyle &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          family == other.family &&
+          size == other.size &&
+          weight == other.weight &&
+          lineHeight == other.lineHeight &&
+          letterSpacing == other.letterSpacing &&
+          wordSpacing == other.wordSpacing;
 }

@@ -1,4 +1,4 @@
-import 'package:design_system_generator/src/config/typography.dart';
+import 'package:design_system_generator/src/old/config/typography.dart';
 
 String typographyGenerator(Iterable<DesignSystemTextStyle> typo) => typo.isEmpty
     ? ''

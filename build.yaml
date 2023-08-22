@@ -1,0 +1,7 @@
+builders:
+  colors:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['colorBuilder']
+    build_extensions: { 'design-system.json': ['design-system.colors.dart'] }
+    auto_apply: root_package
+    build_to: source

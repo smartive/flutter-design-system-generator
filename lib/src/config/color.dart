@@ -55,4 +55,13 @@ class DesignSystemColor {
   bool get isNameValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isNameValid ? name : 'color$name';
+
+  @override
+  // ignore: hash_and_equals
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemColor &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          hex == other.hex;
 }

@@ -30,4 +30,13 @@ class DesignSystemBorderRadius {
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isValid ? name : 'radius$name';
+
+  @override
+  // ignore: hash_and_equals
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemBorderRadius &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          radius == other.radius;
 }
