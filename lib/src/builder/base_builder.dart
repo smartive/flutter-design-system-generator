@@ -15,7 +15,8 @@ abstract base class DesignSystemBuilder implements Builder {
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    final output = buildStep.inputId.changeExtension('.$part.dart');
+    final output =
+        buildStep.inputId.changeExtension('').changeExtension('.$part.dart');
     final configString = await buildStep.readAsString(buildStep.inputId);
     final config = DesignSystemConfig.fromJson(jsonDecode(configString));
     final outputLib = buildLibrary(config).rebuild((b) => b
@@ -41,6 +42,6 @@ abstract base class DesignSystemBuilder implements Builder {
 
   @override
   Map<String, List<String>> get buildExtensions => {
-        'design-system.json': ['design-system.$part.dart'],
+        '.ds.json': ['.$part.dart'],
       };
 }

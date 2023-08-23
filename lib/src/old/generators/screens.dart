@@ -75,4 +75,27 @@ ${(screens.toList()..sort((a, b) => b.width.compareTo(a.width))).map((e) => '   
       .map((e) => e.value)
       .firstWhere((e) => e != null, orElse: () => defaultValue) as T;
 }
+T responsiveValue<T>(
+  T defaultValue, {
+  BuildContext? context,
+  T? sm,
+  T? md,
+  T? lg,
+  T? xl,
+}) {
+  final width = context != null
+      ? View.of(context).physicalSize.width
+      : WidgetsBinding
+          .instance.platformDispatcher.views.first.physicalSize.width;
+  final values = {
+    AppBreakpoints.xl: xl,
+    AppBreakpoints.lg: lg,
+    AppBreakpoints.md: md,
+    AppBreakpoints.sm: sm,
+  };
+  return values.entries
+      .skipWhile((e) => e.key > width)
+      .map((e) => e.value)
+      .firstWhere((e) => e != null, orElse: () => defaultValue) as T;
+}
 ''';
