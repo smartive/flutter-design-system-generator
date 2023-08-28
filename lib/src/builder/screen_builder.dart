@@ -93,7 +93,7 @@ final class ScreenBuilder extends DesignSystemBuilder {
               .statement,
           declareFinal('values')
               .assign(literalMap({
-                for (var e
+                for (final e
                     in config.screens.toList()
                       ..sort((a, b) => b.width.compareTo(a.width)))
                   refer('AppBreakpoints').property(e.validName):

@@ -24,7 +24,7 @@ class DesignSystemConfig {
         colors: switch (json['colors']) {
           bool() => [],
           null => DesignSystemColor.defaultValue,
-          dynamic data => (DesignSystemColor.parse(data).toList(growable: false)
+          final dynamic data => (DesignSystemColor.parse(data).toList(growable: false)
             ..sort(
               (a, b) => a.name.compareTo(b.name),
             )),
@@ -32,13 +32,13 @@ class DesignSystemConfig {
         screens: switch (json['screens']) {
           bool() => [],
           null => DesignSystemScreen.defaultValue,
-          dynamic data => DesignSystemScreen.parse(data).toList(growable: false)
+          final dynamic data => DesignSystemScreen.parse(data).toList(growable: false)
             ..sort((a, b) => a.width.compareTo(a.width)),
         },
         spatials: switch (json['spacings']) {
           bool() => [],
           null => DesignSystemSpatial.defaultValue,
-          dynamic data =>
+          final dynamic data =>
             (DesignSystemSpatial.parse(data).toList(growable: false)
               ..sort(
                 (a, b) => a.space.compareTo(b.space),
@@ -47,7 +47,7 @@ class DesignSystemConfig {
         radii: switch (json['borderRadius']) {
           bool() => [],
           null => DesignSystemBorderRadius.defaultValue,
-          dynamic data =>
+          final dynamic data =>
             (DesignSystemBorderRadius.parse(data).toList(growable: false)
               ..sort(
                 (a, b) => a.radius.compareTo(b.radius),
@@ -56,7 +56,7 @@ class DesignSystemConfig {
         typography: switch (json['typography']) {
           bool() => [],
           null => DesignSystemTextStyle.defaultValue,
-          dynamic data =>
+          final dynamic data =>
             (DesignSystemTextStyle.parse(data).toList(growable: false)
               ..sort(
                 (a, b) => a.name.compareTo(b.name),
