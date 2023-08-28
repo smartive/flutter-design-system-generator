@@ -24,16 +24,18 @@ class DesignSystemConfig {
         colors: switch (json['colors']) {
           bool() => [],
           null => DesignSystemColor.defaultValue,
-          final dynamic data => (DesignSystemColor.parse(data).toList(growable: false)
-            ..sort(
-              (a, b) => a.name.compareTo(b.name),
-            )),
+          final dynamic data =>
+            (DesignSystemColor.parse(data).toList(growable: false)
+              ..sort(
+                (a, b) => a.name.compareTo(b.name),
+              )),
         },
         screens: switch (json['screens']) {
           bool() => [],
           null => DesignSystemScreen.defaultValue,
-          final dynamic data => DesignSystemScreen.parse(data).toList(growable: false)
-            ..sort((a, b) => a.width.compareTo(a.width)),
+          final dynamic data =>
+            DesignSystemScreen.parse(data).toList(growable: false)
+              ..sort((a, b) => a.width.compareTo(a.width)),
         },
         spatials: switch (json['spacings']) {
           bool() => [],
