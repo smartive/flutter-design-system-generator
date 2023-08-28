@@ -20,6 +20,8 @@ class DesignSystemBorderRadius {
         yield DesignSystemBorderRadius(e.key, e.value);
       } else if (e.value is int) {
         yield DesignSystemBorderRadius(e.key, e.value.toDouble());
+      } else {
+        yield DesignSystemBorderRadius(e.key, 0);
       }
     }
   }
