@@ -43,6 +43,21 @@ final class TypographyBuilder extends DesignSystemBuilder {
                   ? literalNum(t.wordSpacing!)
                   : literalNull,
             }).code)))),
-      ));
+      )
+      ..body.add(Enum((b) => b
+        ..name = 'AppTypography'
+        ..fields.add(Field((b) => b
+          ..modifier = FieldModifier.final$
+          ..name = 'textStyle'
+          ..type = textStyleRef))
+        ..constructors.add(Constructor((b) => b
+          ..constant = true
+          ..requiredParameters.add(Parameter((b) => b
+            ..name = 'textStyle'
+            ..toThis = true))))
+        ..values.addAll(config.typography.map((t) => EnumValue((b) => b
+          ..name = t.validName
+          ..docs.addAll(['/// ${t.validName}'])
+          ..arguments.add(refer('AppTypographies').property(t.validName))))))));
   }
 }

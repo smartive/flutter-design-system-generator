@@ -42,6 +42,6 @@ abstract base class DesignSystemBuilder implements Builder {
 
   @override
   Map<String, List<String>> get buildExtensions => {
-        '.ds.json': ['.$part.dart'],
+        '.design-system.json': ['.$part.dart'],
       };
 }

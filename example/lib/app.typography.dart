@@ -28,3 +28,15 @@ abstract final class AppTypographies {
     wordSpacing: 2.2,
   );
 }
+
+enum AppTypography {
+  /// display1
+  display1(AppTypographies.display1),
+
+  /// root
+  root(AppTypographies.root);
+
+  const AppTypography(this.textStyle);
+
+  final _i1.TextStyle textStyle;
+}
