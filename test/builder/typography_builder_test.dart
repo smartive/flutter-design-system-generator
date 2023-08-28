@@ -1,72 +1,45 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:build/build.dart';
 import 'package:build_test/build_test.dart';
-import 'package:design_system_generator/src/builder/color_builder.dart';
+import 'package:design_system_generator/src/builder/typography_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class OutputWriter extends InMemoryAssetWriter {
-  final String name;
-
-  OutputWriter(this.name);
-
-  @override
-  Future writeAsString(AssetId id, String contents,
-      {Encoding encoding = utf8}) async {
-    await super.writeAsString(id, contents, encoding: encoding);
-
-    final f = await File('test/$name.txt').create();
-    final w = f.openWrite(mode: FileMode.append);
-    w.writeln(id);
-    w.writeln(contents);
-    w.writeln();
-  }
-}
-
 void main() {
-  group('ColorBuilder', () {
+  group('TypographyBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
       test('should generate correct code ($name).',
-          () => testBuilder(ColorBuilder(), inputs, outputs: outputs));
+          () => testBuilder(TypographyBuilder(), inputs, outputs: outputs));
     }
   });
 }
 
-const _default = '''
+const _multi = '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - colors
+// Design System Generator - typography
 // *************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:ui' as _i1;
+import 'package:flutter/widgets.dart' as _i1;
 
-abstract final class AppColors {
-  static const black = _i1.Color(0xFF000000);
-
-  static const white = _i1.Color(0xFFFFFFFF);
-
-  static const transparent = _i1.Color(0x00000000);
+abstract final class AppTypographies {
+  /// Text Style Definition foo
+  static const foo = _i1.TextStyle(
+    fontFamily: 'f',
+    fontWeight: null,
+    fontSize: null,
+    height: null,
+    letterSpacing: null,
+    wordSpacing: null,
+  );
 }
 
-enum AppColor {
-  black(AppColors.black),
-  white(AppColors.white),
-  transparent(AppColors.transparent);
+enum AppTypography {
+  /// foo
+  foo(AppTypographies.foo);
 
-  const AppColor(this.color);
+  const AppTypography(this.textStyle);
 
-  final _i1.Color color;
-
-  _i1.Color withOpacity(double opacity) => color.withOpacity(opacity);
-  static AppColor fromColor(
-    _i1.Color color, [
-    AppColor? orElse,
-  ]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+  final _i1.TextStyle textStyle;
 }
 ''';
 
@@ -75,134 +48,161 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
   ('no design system', {'a|lib/design_system.dart': ''}, {}),
   (
     'multiple design system',
-    {'a|lib/a.design-system.json': '{}', 'a|lib/b.design-system.json': '{}'},
-    {'a|lib/a.colors.dart': _default, 'a|lib/b.colors.dart': _default},
+    {
+      'a|lib/a.design-system.json': '{"typography": {"foo": {"family": "f"}}}',
+      'a|lib/b.design-system.json': '{"typography": {"foo": {"family": "f"}}}',
+    },
+    {'a|lib/a.typography.dart': _multi, 'a|lib/b.typography.dart': _multi},
   ),
   (
-    'default colors',
+    'default typography',
     {'a|lib/a.design-system.json': '{}'},
-    {'a|lib/a.colors.dart': _default},
+    {},
   ),
   (
-    'valid colors',
+    'valid typography',
     {
       'a|lib/a.design-system.json': '''{
-        "colors": {
-          "tripple": "#abc",
-          "withAlpha": "#aabbccdd",
-          "withoutAlpha": "#aabbcc",
-          "pink": {
-            "base": "#FFC0CB",
-            "light": "#FFB6C1",
-            "dark": {
-              "50": "#FFC0CB",
-              "100": "#FFB6C1"
+        "typography": {
+          "root": {
+            "family": "Arial",
+            "size": 16,
+            "weight": 400,
+            "lineHeight": 32,
+            "letterSpacing": 1.2,
+            "wordSpacing": 2.2
+          },
+          "partial": {
+            "family": "Arial",
+            "size": 16,
+            "letterSpacing": 1.2
+          },
+          "heading": {
+            "DEFAULT": {
+              "family": "default"
             },
-            "DEFAULT": "#000000"
+            "1": {
+              "family": "h1"
+            }
           }
         }
       }'''
     },
     {
-      'a|lib/a.colors.dart': '''
+      'a|lib/a.typography.dart': '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - colors
+// Design System Generator - typography
 // *************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:ui' as _i1;
+import 'package:flutter/widgets.dart' as _i1;
 
-abstract final class AppColors {
-  static const pink = _i1.Color(0xFF000000);
+abstract final class AppTypographies {
+  /// Text Style Definition heading
+  static const heading = _i1.TextStyle(
+    fontFamily: 'default',
+    fontWeight: null,
+    fontSize: null,
+    height: null,
+    letterSpacing: null,
+    wordSpacing: null,
+  );
 
-  static const pinkBase = _i1.Color(0xFFFFC0CB);
+  /// Text Style Definition heading1
+  static const heading1 = _i1.TextStyle(
+    fontFamily: 'h1',
+    fontWeight: null,
+    fontSize: null,
+    height: null,
+    letterSpacing: null,
+    wordSpacing: null,
+  );
 
-  static const pinkDark100 = _i1.Color(0xFFFFB6C1);
+  /// Text Style Definition partial
+  static const partial = _i1.TextStyle(
+    fontFamily: 'Arial',
+    fontWeight: null,
+    fontSize: 16.0,
+    height: null,
+    letterSpacing: 1.2,
+    wordSpacing: null,
+  );
 
-  static const pinkDark50 = _i1.Color(0xFFFFC0CB);
-
-  static const pinkLight = _i1.Color(0xFFFFB6C1);
-
-  static const tripple = _i1.Color(0xFFaabbcc);
-
-  static const withAlpha = _i1.Color(0xddaabbcc);
-
-  static const withoutAlpha = _i1.Color(0xFFaabbcc);
+  /// Text Style Definition root
+  static const root = _i1.TextStyle(
+    fontFamily: 'Arial',
+    fontWeight: _i1.FontWeight.w400,
+    fontSize: 16.0,
+    height: 2.0,
+    letterSpacing: 1.2,
+    wordSpacing: 2.2,
+  );
 }
 
-enum AppColor {
-  pink(AppColors.pink),
-  pinkBase(AppColors.pinkBase),
-  pinkDark100(AppColors.pinkDark100),
-  pinkDark50(AppColors.pinkDark50),
-  pinkLight(AppColors.pinkLight),
-  tripple(AppColors.tripple),
-  withAlpha(AppColors.withAlpha),
-  withoutAlpha(AppColors.withoutAlpha);
+enum AppTypography {
+  /// heading
+  heading(AppTypographies.heading),
 
-  const AppColor(this.color);
+  /// heading1
+  heading1(AppTypographies.heading1),
 
-  final _i1.Color color;
+  /// partial
+  partial(AppTypographies.partial),
 
-  _i1.Color withOpacity(double opacity) => color.withOpacity(opacity);
-  static AppColor fromColor(
-    _i1.Color color, [
-    AppColor? orElse,
-  ]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+  /// root
+  root(AppTypographies.root);
+
+  const AppTypography(this.textStyle);
+
+  final _i1.TextStyle textStyle;
 }
 '''
     },
   ),
   (
-    'invalid colors',
+    'invalid typography',
     {
       'a|lib/a.design-system.json': '''{
-        "colors": {
-          "foo": "bar",
-          "123": "#aabbccdd"
+        "typography": {
+          "11": {"family": "Arial"}
         }
       }'''
     },
     {
-      'a|lib/a.colors.dart': '''
+      'a|lib/a.typography.dart': '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - colors
+// Design System Generator - typography
 // *************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:ui' as _i1;
+import 'package:flutter/widgets.dart' as _i1;
 
-abstract final class AppColors {
-  static const color123 = _i1.Color(0xddaabbcc);
-
-  /// foo contains a non-valid 6 or 8 char hex string ("bar").
-  static const foo = _i1.Color(0x00000000);
+abstract final class AppTypographies {
+  /// Text Style Definition typo11
+  static const typo11 = _i1.TextStyle(
+    fontFamily: 'Arial',
+    fontWeight: null,
+    fontSize: null,
+    height: null,
+    letterSpacing: null,
+    wordSpacing: null,
+  );
 }
 
-enum AppColor {
-  color123(AppColors.color123),
-  foo(AppColors.foo);
+enum AppTypography {
+  /// typo11
+  typo11(AppTypographies.typo11);
 
-  const AppColor(this.color);
+  const AppTypography(this.textStyle);
 
-  final _i1.Color color;
-
-  _i1.Color withOpacity(double opacity) => color.withOpacity(opacity);
-  static AppColor fromColor(
-    _i1.Color color, [
-    AppColor? orElse,
-  ]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+  final _i1.TextStyle textStyle;
 }
 '''
     },
   ),
-  ('disabled', {'a|lib/a.design_system.json': '{"colors": false}'}, {}),
+  ('disabled', {'a|lib/a.design-system.json': '{"typography": false}'}, {}),
 ];
