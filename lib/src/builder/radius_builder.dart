@@ -8,7 +8,7 @@ final class RadiusBuilder extends DesignSystemBuilder {
 
   @override
   Library buildLibrary(DesignSystemConfig config) {
-    if (config.colors.isEmpty) {
+    if (config.radii.isEmpty) {
       return Library();
     }
 

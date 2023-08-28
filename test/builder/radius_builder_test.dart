@@ -1,28 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:build/build.dart';
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/radius_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-class OutputWriter extends InMemoryAssetWriter {
-  final String name;
-
-  OutputWriter(this.name);
-
-  @override
-  Future writeAsString(AssetId id, String contents,
-      {Encoding encoding = utf8}) async {
-    await super.writeAsString(id, contents, encoding: encoding);
-
-    final f = await File('test/$name.txt').create();
-    final w = f.openWrite(mode: FileMode.append);
-    w.writeln(id);
-    w.writeln(contents);
-    w.writeln();
-  }
-}
 
 void main() {
   group('RadiusBuilder', () {
@@ -283,5 +261,5 @@ enum AppBorderRadius {
 '''
     },
   ),
-  ('disabled', {'a|lib/a.design_system.json': '{"borderRadius": false}'}, {}),
+  ('disabled', {'a|lib/a.design-system.json': '{"borderRadius": false}'}, {}),
 ];

@@ -8,7 +8,7 @@ final class ScreenBuilder extends DesignSystemBuilder {
 
   @override
   Library buildLibrary(DesignSystemConfig config) {
-    if (config.colors.isEmpty) {
+    if (config.screens.isEmpty) {
       return Library();
     }
 

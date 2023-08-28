@@ -50,6 +50,8 @@ class DesignSystemSpatial {
         yield DesignSystemSpatial(e.key, e.value);
       } else if (e.value is int) {
         yield DesignSystemSpatial(e.key, e.value.toDouble());
+      } else {
+        yield DesignSystemSpatial(e.key, 0);
       }
     }
   }

@@ -182,5 +182,5 @@ enum AppColor {
 '''
     },
   ),
-  ('disabled', {'a|lib/a.design_system.json': '{"colors": false}'}, {}),
+  ('disabled', {'a|lib/a.design-system.json': '{"colors": false}'}, {}),
 ];

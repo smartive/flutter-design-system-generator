@@ -8,7 +8,7 @@ final class TypographyBuilder extends DesignSystemBuilder {
 
   @override
   Library buildLibrary(DesignSystemConfig config) {
-    if (config.colors.isEmpty) {
+    if (config.typography.isEmpty) {
       return Library();
     }
 

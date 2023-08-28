@@ -8,7 +8,7 @@ final class SpatialBuilder extends DesignSystemBuilder {
 
   @override
   Library buildLibrary(DesignSystemConfig config) {
-    if (config.colors.isEmpty) {
+    if (config.spatials.isEmpty) {
       return Library();
     }
 

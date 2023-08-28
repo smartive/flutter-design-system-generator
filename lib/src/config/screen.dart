@@ -18,6 +18,8 @@ class DesignSystemScreen {
         yield DesignSystemScreen(e.key, e.value);
       } else if (e.value is int) {
         yield DesignSystemScreen(e.key, e.value.toDouble());
+      } else {
+        yield DesignSystemScreen(e.key, 0);
       }
     }
   }
