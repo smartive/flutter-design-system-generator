@@ -34,11 +34,13 @@ class DesignSystemBorderRadius {
   String get validName => isValid ? name : 'radius$name';
 
   @override
-  // ignore: hash_and_equals
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is DesignSystemBorderRadius &&
           runtimeType == other.runtimeType &&
           name == other.name &&
           radius == other.radius;
+
+  @override
+  int get hashCode => name.hashCode ^ radius.hashCode;
 }

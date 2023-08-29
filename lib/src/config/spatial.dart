@@ -64,11 +64,13 @@ class DesignSystemSpatial {
   String get validName => isValid ? name : 'spatial$name';
 
   @override
-  // ignore: hash_and_equals
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is DesignSystemSpatial &&
           runtimeType == other.runtimeType &&
           name == other.name &&
           space == other.space;
+
+  @override
+  int get hashCode => name.hashCode ^ space.hashCode;
 }

@@ -53,7 +53,6 @@ class DesignSystemTextStyle {
   String get validName => isValid ? name : 'typo$name';
 
   @override
-  // ignore: hash_and_equals
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is DesignSystemTextStyle &&
@@ -65,4 +64,14 @@ class DesignSystemTextStyle {
           lineHeight == other.lineHeight &&
           letterSpacing == other.letterSpacing &&
           wordSpacing == other.wordSpacing;
+
+  @override
+  int get hashCode =>
+      name.hashCode ^
+      family.hashCode ^
+      size.hashCode ^
+      weight.hashCode ^
+      lineHeight.hashCode ^
+      letterSpacing.hashCode ^
+      wordSpacing.hashCode;
 }
