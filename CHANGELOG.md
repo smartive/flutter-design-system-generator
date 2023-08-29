@@ -1,3 +1,23 @@
+# [4.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v3.2.0...v4.0.0) (2023-08-29)
+
+
+### Features
+
+* use build_runner again ([#6](https://github.com/smartive/flutter-design-system-generator/issues/6)) ([a7fdd4a](https://github.com/smartive/flutter-design-system-generator/commit/a7fdd4ae173e142031499019abb30993721dd38d))
+
+
+### BREAKING CHANGES
+
+* This removes the binary executable
+from the package and re-introduces the build_runner system.
+It allows multiple design systems to be configured
+and is more aligned to the "standard" dart build
+behaviour. To migrate: Move the `design-system.json`
+file into the `lib/` folder and give it another name,
+such as `app.design-system.json`. Then remove your
+ref to the binary `dart run design_system_generator generate`
+and just run `dart run build_runner build` instead.
+
 # [3.2.0](https://github.com/smartive/flutter-design-system-generator/compare/v3.1.1...v3.2.0) (2023-06-30)
 
 
