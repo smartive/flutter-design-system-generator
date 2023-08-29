@@ -1,5 +1,5 @@
 {
-  "$schema": "../design-system.schema.json",
+  "$schema": "../../design-system.schema.json",
   "colors": {
     "orange": {
       "DEFAULT": "#FFA500",

@@ -18,6 +18,8 @@ class DesignSystemScreen {
         yield DesignSystemScreen(e.key, e.value);
       } else if (e.value is int) {
         yield DesignSystemScreen(e.key, e.value.toDouble());
+      } else {
+        yield DesignSystemScreen(e.key, 0);
       }
     }
   }
@@ -28,4 +30,15 @@ class DesignSystemScreen {
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isValid ? name : 'screen$name';
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemScreen &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          width == other.width;
+
+  @override
+  int get hashCode => name.hashCode ^ width.hashCode;
 }

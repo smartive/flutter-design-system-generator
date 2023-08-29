@@ -50,6 +50,8 @@ class DesignSystemSpatial {
         yield DesignSystemSpatial(e.key, e.value);
       } else if (e.value is int) {
         yield DesignSystemSpatial(e.key, e.value.toDouble());
+      } else {
+        yield DesignSystemSpatial(e.key, 0);
       }
     }
   }
@@ -60,4 +62,15 @@ class DesignSystemSpatial {
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isValid ? name : 'spatial$name';
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemSpatial &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          space == other.space;
+
+  @override
+  int get hashCode => name.hashCode ^ space.hashCode;
 }

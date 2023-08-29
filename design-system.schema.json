@@ -116,51 +116,6 @@
         },
         { "const": false }
       ]
-    },
-    "output": {
-      "title": "Output Configuration",
-      "description": "The configuration for the output of the CLI/generator tool.",
-      "type": "object",
-      "default": {
-        "basePath": "lib/ui/identity",
-        "colorFile": "colors.g.dart",
-        "radiiFile": "border_radii.g.dart",
-        "screenFile": "screens.g.dart",
-        "spacingFile": "spatials.g.dart",
-        "typoFile": "typography.g.dart"
-      },
-      "properties": {
-        "basePath": {
-          "description": "The general basePath for all the output files.",
-          "default": "lib/ui/identity",
-          "type": "string"
-        },
-        "colorFile": {
-          "description": "Output configuration for the colors file (is joined with basePath).",
-          "default": "colors.g.dart",
-          "type": "string"
-        },
-        "radiiFile": {
-          "description": "Output configuration for the radii file (is joined with basePath).",
-          "default": "border_radii.g.dart",
-          "type": "string"
-        },
-        "screenFile": {
-          "description": "Output configuration for the screens file (is joined with basePath).",
-          "default": "screens.g.dart",
-          "type": "string"
-        },
-        "spacingFile": {
-          "description": "Output configuration for the spacings file (is joined with basePath).",
-          "default": "spatials.g.dart",
-          "type": "string"
-        },
-        "typoFile": {
-          "description": "Output configuration for the typography file (is joined with basePath).",
-          "default": "typography.g.dart",
-          "type": "string"
-        }
-      }
     }
   },
   "$defs": {

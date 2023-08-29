@@ -20,6 +20,8 @@ class DesignSystemBorderRadius {
         yield DesignSystemBorderRadius(e.key, e.value);
       } else if (e.value is int) {
         yield DesignSystemBorderRadius(e.key, e.value.toDouble());
+      } else {
+        yield DesignSystemBorderRadius(e.key, 0);
       }
     }
   }
@@ -30,4 +32,15 @@ class DesignSystemBorderRadius {
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
   String get validName => isValid ? name : 'radius$name';
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DesignSystemBorderRadius &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          radius == other.radius;
+
+  @override
+  int get hashCode => name.hashCode ^ radius.hashCode;
 }

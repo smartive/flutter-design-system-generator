@@ -1,15 +1,18 @@
 # Using the design system generator
 
-To use the design system generator, you need to install it as a dev dependency.
+To use the design system generator, you need to install it as a dev dependency
+along with the build runner dependency.
 
-`flutter pub add dev:design_system_generator`.
+`flutter pub add dev:design_system_generator dev:build_runner`.
 
-Then, you need to create a `design-system.json` file in your root folder.
+Then, you need to create a `<name>.design-system.json` file in your lib folder.
+You can create multiple such files, the generator will run for each file with
+the `.design-system.json` extension.
 There is a json schema to enable autocompletion and schema validation for
 your configuration file.
 
 After you have created your configuration file, you can run the generator
-with `dart run design_system_generator generate`.
+with `dart run build_runner build --delete-conflicting-outputs`.
 
 Note that colors are in the format `#RRGGBB` or `#RRGGBBAA` (with alpha).
 

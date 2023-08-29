@@ -9,3 +9,5 @@ pubspec.lock
 build/
 
 !bin/
+
+*.g.dart

@@ -19,11 +19,12 @@ Refer to the [example](./example/example.md) to see how to use the generator.
 
 Summary:
 
-- Create a `design-system.json` file in your app folder.
-  The file can be passed as config or will be searched in your
-  folder by a glob pattern.
+- Create a `<name>.design-system.json` file somewhere in your lib folder.
+  The generators will run for each file with the `.design-system.json` extension.
+  So you can have multiple design systems in your project.
 - Configure your design system to your wishes
   (add `"$schema": "https://github.com/smartive/flutter-design-system-generator/blob/main/design-system.schema.json"`)
   to the start to get JSON schema validation
+- Install the build runner with `flutter pub add dev:build_runner`
 - Install the design system generator with `flutter pub add dev:design_system_generator`
-- Run `dart run design_system_generator generate` to generate the design system
+- Run `dart run build_runner build --delete-conflicting-outputs` to generate the design system
