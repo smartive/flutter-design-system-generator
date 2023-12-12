@@ -100,7 +100,7 @@
       ]
     },
     "borderWidths": {
-      "title": "Border width Values",
+      "title": "Border width values",
       "description": "A map of border width values.",
       "oneOf": [
         {
@@ -113,9 +113,6 @@
               "multipleOf": 1
             }
           }
-        },
-        {
-          "const": false
         }
       ]
     },
@@ -215,7 +212,7 @@
     },
     "iconSizes": {
       "title": "Icon sizes",
-      "description": "A definition of the Icon Sizes in px.",
+      "description": "A definition of the icon sizes in px.",
       "oneOf": [
         {
           "type": "object",
@@ -227,9 +224,6 @@
               "multipleOf": 1
             }
           }
-        },
-        {
-          "const": false
         }
       ]
     }

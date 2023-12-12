@@ -53,7 +53,6 @@ class DesignSystemConfig {
               )),
         },
         borderWidths: switch (json['borderWidths']) {
-          bool() => [],
           null => DesignSystemBorderWidth.defaultValue,
           final dynamic data =>
             (DesignSystemBorderWidth.parse(data).toList(growable: false)
@@ -80,7 +79,6 @@ class DesignSystemConfig {
               )),
         },
         iconSizes: switch (json['iconSizes']) {
-          bool() => [],
           null => DesignSystemIconSize.defaultValue,
           final dynamic data =>
             (DesignSystemIconSize.parse(data).toList(growable: false)

@@ -157,5 +157,4 @@ enum AppBorderWidth {
 '''
     },
   ),
-  ('disabled', {'a|lib/a.design-system.json': '{"borderWidths": false}'}, {}),
 ];

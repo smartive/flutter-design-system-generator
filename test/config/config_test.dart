@@ -15,19 +15,15 @@ void main() {
         'colors': false,
         'screens': false,
         'spacings': false,
-        'borderWidth': false,
         'borderRadius': false,
         'typography': false,
-        'iconSizes': false,
       });
 
       expect(config.colors, isEmpty);
       expect(config.screens, isEmpty);
       expect(config.spatials, isEmpty);
-      expect(config.borderWidths, isEmpty);
       expect(config.radii, isEmpty);
       expect(config.typography, isEmpty);
-      expect(config.iconSizes, isEmpty);
     });
 
     test('should return default if value is omitted.', () {
