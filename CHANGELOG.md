@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v4.0.0...v4.1.0) (2023-12-12)
+
+
+### Features
+
+* add icon size and border width generators ([#9](https://github.com/smartive/flutter-design-system-generator/issues/9)) ([c64df60](https://github.com/smartive/flutter-design-system-generator/commit/c64df609bdf3fd0caeda27c99f70c986485e9b2d))
+
 # [4.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v3.2.0...v4.0.0) (2023-08-29)
 
 
