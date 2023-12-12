@@ -4,7 +4,7 @@ import '../config/config.dart';
 import 'base_builder.dart';
 
 final class IconSizeBuilder extends DesignSystemBuilder {
-  IconSizeBuilder() : super('icon_size');
+  IconSizeBuilder() : super('icon_sizes');
 
   @override
   Library buildLibrary(DesignSystemConfig config) {

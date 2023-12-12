@@ -21,11 +21,11 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
       'a|lib/b.design-system.json': '{"iconSizes": {"c": 32, "d": 64}}'
     },
     {
-      'a|lib/a.icon_size.dart': '''
+      'a|lib/a.icon_sizes.dart': '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - icon_size
+// Design System Generator - icon_sizes
 // *************************************************************************
 
 abstract final class AppIconSizes {
@@ -50,11 +50,11 @@ enum AppIconSize {
   int get integer => value.toInt();
 }
 ''',
-      'a|lib/b.icon_size.dart': '''
+      'a|lib/b.icon_sizes.dart': '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - icon_size
+// Design System Generator - icon_sizes
 // *************************************************************************
 
 abstract final class AppIconSizes {
@@ -92,11 +92,11 @@ enum AppIconSize {
       }'''
     },
     {
-      'a|lib/a.icon_size.dart': '''
+      'a|lib/a.icon_sizes.dart': '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - icon_size
+// Design System Generator - icon_sizes
 // *************************************************************************
 
 abstract final class AppIconSizes {
@@ -134,11 +134,11 @@ enum AppIconSize {
       }'''
     },
     {
-      'a|lib/a.icon_size.dart': '''
+      'a|lib/a.icon_sizes.dart': '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - icon_size
+// Design System Generator - icon_sizes
 // *************************************************************************
 
 abstract final class AppIconSizes {

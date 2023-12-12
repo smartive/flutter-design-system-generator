@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 //
 // **************************************************************************
-// Design System Generator - icon_size
+// Design System Generator - icon_sizes
 // *************************************************************************
 
 abstract final class AppIconSizes {
