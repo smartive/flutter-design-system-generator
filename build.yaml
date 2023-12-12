@@ -13,6 +13,13 @@ builders:
     auto_apply: root_package
     build_to: source
 
+  borderWidths:
+    import: "package:design_system_generator/builder.dart"
+    builder_factories: ["borderWidthBuilder"]
+    build_extensions: { ".design-system.json": [".border_widths.dart"] }
+    auto_apply: root_package
+    build_to: source
+
   radius:
     import: "package:design_system_generator/builder.dart"
     builder_factories: ["radiusBuilder"]

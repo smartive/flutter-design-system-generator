@@ -40,6 +40,10 @@ Note that colors are in the format `#RRGGBB` or `#RRGGBBAA` (with alpha).
     "medium": 20,
     "big": -30
   },
+  "borderWidths": {
+    "b1": 1,
+    "b2": 2
+  },
   "borderRadius": {
     "normal": 8,
     "full": 9999

@@ -99,6 +99,26 @@
         }
       ]
     },
+    "borderWidths": {
+      "title": "Border width Values",
+      "description": "A map of border width values.",
+      "oneOf": [
+        {
+          "type": "object",
+          "minProperties": 0,
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-zA-Z][a-zA-Z0-9]*$": {
+              "type": "integer",
+              "multipleOf": 1
+            }
+          }
+        },
+        {
+          "const": false
+        }
+      ]
+    },
     "borderRadius": {
       "title": "Border Radii",
       "description": "A map of border radius values.",

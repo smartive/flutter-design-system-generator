@@ -1,3 +1,4 @@
+import 'border_width.dart';
 import 'color.dart';
 import 'icon_size.dart';
 import 'radius.dart';
@@ -9,6 +10,7 @@ class DesignSystemConfig {
   final List<DesignSystemColor> colors;
   final List<DesignSystemScreen> screens;
   final List<DesignSystemSpatial> spatials;
+  final List<DesignSystemBorderWidth> borderWidths;
   final List<DesignSystemBorderRadius> radii;
   final List<DesignSystemTextStyle> typography;
   final List<DesignSystemIconSize> iconSizes;
@@ -17,6 +19,7 @@ class DesignSystemConfig {
     required this.colors,
     required this.screens,
     required this.spatials,
+    required this.borderWidths,
     required this.radii,
     required this.typography,
     required this.iconSizes,
@@ -47,6 +50,15 @@ class DesignSystemConfig {
             (DesignSystemSpatial.parse(data).toList(growable: false)
               ..sort(
                 (a, b) => a.space.compareTo(b.space),
+              )),
+        },
+        borderWidths: switch (json['borderWidths']) {
+          bool() => [],
+          null => DesignSystemBorderWidth.defaultValue,
+          final dynamic data =>
+            (DesignSystemBorderWidth.parse(data).toList(growable: false)
+              ..sort(
+                (a, b) => a.width.compareTo(b.width),
               )),
         },
         radii: switch (json['borderRadius']) {

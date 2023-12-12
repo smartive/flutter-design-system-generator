@@ -1,3 +1,4 @@
+import 'package:design_system_generator/src/config/border_width.dart';
 import 'package:design_system_generator/src/config/color.dart';
 import 'package:design_system_generator/src/config/config.dart';
 import 'package:design_system_generator/src/config/icon_size.dart';
@@ -14,6 +15,7 @@ void main() {
         'colors': false,
         'screens': false,
         'spacings': false,
+        'borderWidth': false,
         'borderRadius': false,
         'typography': false,
         'iconSizes': false,
@@ -22,6 +24,7 @@ void main() {
       expect(config.colors, isEmpty);
       expect(config.screens, isEmpty);
       expect(config.spatials, isEmpty);
+      expect(config.borderWidths, isEmpty);
       expect(config.radii, isEmpty);
       expect(config.typography, isEmpty);
       expect(config.iconSizes, isEmpty);
@@ -33,6 +36,7 @@ void main() {
       expect(config.colors, DesignSystemColor.defaultValue);
       expect(config.screens, DesignSystemScreen.defaultValue);
       expect(config.spatials, DesignSystemSpatial.defaultValue);
+      expect(config.borderWidths, DesignSystemBorderWidth.defaultValue);
       expect(config.radii, DesignSystemBorderRadius.defaultValue);
       expect(config.typography, DesignSystemTextStyle.defaultValue);
       expect(config.iconSizes, DesignSystemIconSize.defaultValue);
@@ -58,6 +62,17 @@ void main() {
         DesignSystemSpatial('small', 4),
         DesignSystemSpatial('medium', 8),
         DesignSystemSpatial('large', 16),
+      ]);
+    });
+
+    test('should correctly parse border widths.', () {
+      final config = DesignSystemConfig.fromJson({
+        'borderWidths': {'b1': 1, 'b2': 2},
+      });
+
+      expect(config.borderWidths, [
+        DesignSystemBorderWidth('b1', 1),
+        DesignSystemBorderWidth('b2', 2),
       ]);
     });
 
