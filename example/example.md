@@ -58,6 +58,11 @@ Note that colors are in the format `#RRGGBB` or `#RRGGBBAA` (with alpha).
         "family": "Arial"
       }
     }
+  },
+  "iconSizes": {
+    "small": 16,
+    "medium": 24,
+    "large": 32
   }
 }
 ```

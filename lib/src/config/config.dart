@@ -1,4 +1,5 @@
 import 'color.dart';
+import 'icon_size.dart';
 import 'radius.dart';
 import 'screen.dart';
 import 'spatial.dart';
@@ -10,6 +11,7 @@ class DesignSystemConfig {
   final List<DesignSystemSpatial> spatials;
   final List<DesignSystemBorderRadius> radii;
   final List<DesignSystemTextStyle> typography;
+  final List<DesignSystemIconSize> iconSizes;
 
   const DesignSystemConfig._({
     required this.colors,
@@ -17,6 +19,7 @@ class DesignSystemConfig {
     required this.spatials,
     required this.radii,
     required this.typography,
+    required this.iconSizes,
   });
 
   factory DesignSystemConfig.fromJson(Map<String, dynamic> json) =>
@@ -62,6 +65,15 @@ class DesignSystemConfig {
             (DesignSystemTextStyle.parse(data).toList(growable: false)
               ..sort(
                 (a, b) => a.name.compareTo(b.name),
+              )),
+        },
+        iconSizes: switch (json['iconSizes']) {
+          bool() => [],
+          null => DesignSystemIconSize.defaultValue,
+          final dynamic data =>
+            (DesignSystemIconSize.parse(data).toList(growable: false)
+              ..sort(
+                (a, b) => a.size.compareTo(b.size),
               )),
         },
       );

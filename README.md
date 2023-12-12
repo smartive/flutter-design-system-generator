@@ -12,6 +12,7 @@ The generator creates the following elements:
 - Spatials (spacing)
 - Screensizes (Breakpoints) and a responsive helper function
 - Text Styles (Typography)
+- Icon Sizes
 
 ## Usage
 

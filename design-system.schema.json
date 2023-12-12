@@ -192,6 +192,26 @@
           ]
         }
       }
+    },
+    "iconSizes": {
+      "title": "Icon sizes",
+      "description": "A definition of the Icon Sizes in px.",
+      "oneOf": [
+        {
+          "type": "object",
+          "minProperties": 0,
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-zA-Z][a-zA-Z0-9]*$": {
+              "type": "integer",
+              "multipleOf": 1
+            }
+          }
+        },
+        {
+          "const": false
+        }
+      ]
     }
   }
 }

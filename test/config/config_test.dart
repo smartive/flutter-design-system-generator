@@ -1,5 +1,6 @@
 import 'package:design_system_generator/src/config/color.dart';
 import 'package:design_system_generator/src/config/config.dart';
+import 'package:design_system_generator/src/config/icon_size.dart';
 import 'package:design_system_generator/src/config/radius.dart';
 import 'package:design_system_generator/src/config/screen.dart';
 import 'package:design_system_generator/src/config/spatial.dart';
@@ -15,6 +16,7 @@ void main() {
         'spacings': false,
         'borderRadius': false,
         'typography': false,
+        'iconSizes': false,
       });
 
       expect(config.colors, isEmpty);
@@ -22,6 +24,7 @@ void main() {
       expect(config.spatials, isEmpty);
       expect(config.radii, isEmpty);
       expect(config.typography, isEmpty);
+      expect(config.iconSizes, isEmpty);
     });
 
     test('should return default if value is omitted.', () {
@@ -32,6 +35,7 @@ void main() {
       expect(config.spatials, DesignSystemSpatial.defaultValue);
       expect(config.radii, DesignSystemBorderRadius.defaultValue);
       expect(config.typography, DesignSystemTextStyle.defaultValue);
+      expect(config.iconSizes, DesignSystemIconSize.defaultValue);
     });
 
     test('should correctly parse screens.', () {
@@ -108,6 +112,18 @@ void main() {
             'button', 'comic sans', null, null, null, null, null),
         DesignSystemTextStyle('h1', 'Roboto', null, null, null, null, null),
         DesignSystemTextStyle('h2', 'Arial', null, null, null, null, null),
+      ]);
+    });
+
+    test('should correctly parse icon sizes.', () {
+      final config = DesignSystemConfig.fromJson({
+        'iconSizes': {'small': 16, 'medium': 20, 'large': 24},
+      });
+
+      expect(config.iconSizes, [
+        DesignSystemIconSize('small', 16),
+        DesignSystemIconSize('medium', 20),
+        DesignSystemIconSize('large', 24),
       ]);
     });
   });
