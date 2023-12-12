@@ -8,10 +8,12 @@ The configuration can be viewed at [Design System JSON Schema](./design-system.s
 The generator creates the following elements:
 
 - Colors
+- Border Widths
 - Border Radii
 - Spatials (spacing)
 - Screensizes (Breakpoints) and a responsive helper function
 - Text Styles (Typography)
+- Icon Sizes
 
 ## Usage
 

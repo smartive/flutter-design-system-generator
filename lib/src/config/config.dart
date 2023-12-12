@@ -1,4 +1,6 @@
+import 'border_width.dart';
 import 'color.dart';
+import 'icon_size.dart';
 import 'radius.dart';
 import 'screen.dart';
 import 'spatial.dart';
@@ -8,15 +10,19 @@ class DesignSystemConfig {
   final List<DesignSystemColor> colors;
   final List<DesignSystemScreen> screens;
   final List<DesignSystemSpatial> spatials;
+  final List<DesignSystemBorderWidth> borderWidths;
   final List<DesignSystemBorderRadius> radii;
   final List<DesignSystemTextStyle> typography;
+  final List<DesignSystemIconSize> iconSizes;
 
   const DesignSystemConfig._({
     required this.colors,
     required this.screens,
     required this.spatials,
+    required this.borderWidths,
     required this.radii,
     required this.typography,
+    required this.iconSizes,
   });
 
   factory DesignSystemConfig.fromJson(Map<String, dynamic> json) =>
@@ -46,6 +52,14 @@ class DesignSystemConfig {
                 (a, b) => a.space.compareTo(b.space),
               )),
         },
+        borderWidths: switch (json['borderWidths']) {
+          null => DesignSystemBorderWidth.defaultValue,
+          final dynamic data =>
+            (DesignSystemBorderWidth.parse(data).toList(growable: false)
+              ..sort(
+                (a, b) => a.width.compareTo(b.width),
+              )),
+        },
         radii: switch (json['borderRadius']) {
           bool() => [],
           null => DesignSystemBorderRadius.defaultValue,
@@ -62,6 +76,14 @@ class DesignSystemConfig {
             (DesignSystemTextStyle.parse(data).toList(growable: false)
               ..sort(
                 (a, b) => a.name.compareTo(b.name),
+              )),
+        },
+        iconSizes: switch (json['iconSizes']) {
+          null => DesignSystemIconSize.defaultValue,
+          final dynamic data =>
+            (DesignSystemIconSize.parse(data).toList(growable: false)
+              ..sort(
+                (a, b) => a.size.compareTo(b.size),
               )),
         },
       );

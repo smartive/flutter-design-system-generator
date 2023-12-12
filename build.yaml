@@ -13,6 +13,13 @@ builders:
     auto_apply: root_package
     build_to: source
 
+  borderWidths:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['borderWidthBuilder']
+    build_extensions: { '.design-system.json': ['.border_widths.dart'] }
+    auto_apply: root_package
+    build_to: source
+
   radius:
     import: 'package:design_system_generator/builder.dart'
     builder_factories: ['radiusBuilder']
@@ -31,5 +38,12 @@ builders:
     import: 'package:design_system_generator/builder.dart'
     builder_factories: ['screenBuilder']
     build_extensions: { '.design-system.json': ['.screens.dart'] }
+    auto_apply: root_package
+    build_to: source
+
+  iconSizes:
+    import: 'package:design_system_generator/builder.dart'
+    builder_factories: ['iconSizeBuilder']
+    build_extensions: { '.design-system.json': ['.icon_sizes.dart'] }
     auto_apply: root_package
     build_to: source
