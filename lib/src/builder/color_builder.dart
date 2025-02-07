@@ -49,7 +49,7 @@ final class ColorBuilder extends DesignSystemBuilder {
             ..name = 'opacity'
             ..type = refer('double')))
           ..lambda = true
-          ..body = Code('color.withOpacity(opacity)')))
+          ..body = Code('color.withValues(alpha: opacity)')))
         ..methods.add(Method((b) => b
           ..name = 'fromColor'
           ..static = true
