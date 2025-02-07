@@ -49,23 +49,21 @@ enum AppSpatial {
     bool top = false,
     bool right = false,
     bool bottom = false,
-  }) =>
-      _i1.EdgeInsets.only(
-        left: left ? value : 0,
-        right: right ? value : 0,
-        top: top ? value : 0,
-        bottom: bottom ? value : 0,
-      );
+  }) => _i1.EdgeInsets.only(
+    left: left ? value : 0,
+    right: right ? value : 0,
+    top: top ? value : 0,
+    bottom: bottom ? value : 0,
+  );
   _i1.EdgeInsets combine({
     AppSpatial? left,
     AppSpatial? top,
     AppSpatial? right,
     AppSpatial? bottom,
-  }) =>
-      insetsAll.copyWith(
-        left: left?.value,
-        top: top?.value,
-        right: right?.value,
-        bottom: bottom?.value,
-      );
+  }) => insetsAll.copyWith(
+    left: left?.value,
+    top: top?.value,
+    right: right?.value,
+    bottom: bottom?.value,
+  );
 }
