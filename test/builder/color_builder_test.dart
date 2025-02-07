@@ -38,13 +38,12 @@ enum AppColor {
 
   final _i1.Color color;
 
-  _i1.Color withOpacity(double opacity) => color.withOpacity(opacity);
-  static AppColor fromColor(
-    _i1.Color color, [
-    AppColor? orElse,
-  ]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+  _i1.Color withOpacity(double opacity) => color.withValues(alpha: opacity);
+  static AppColor fromColor(_i1.Color color, [AppColor? orElse]) =>
+      AppColor.values.firstWhere(
+        (e) => e.color == color,
+        orElse: orElse == null ? null : () => orElse,
+      );
 }
 ''';
 
@@ -124,13 +123,12 @@ enum AppColor {
 
   final _i1.Color color;
 
-  _i1.Color withOpacity(double opacity) => color.withOpacity(opacity);
-  static AppColor fromColor(
-    _i1.Color color, [
-    AppColor? orElse,
-  ]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+  _i1.Color withOpacity(double opacity) => color.withValues(alpha: opacity);
+  static AppColor fromColor(_i1.Color color, [AppColor? orElse]) =>
+      AppColor.values.firstWhere(
+        (e) => e.color == color,
+        orElse: orElse == null ? null : () => orElse,
+      );
 }
 '''
     },
@@ -171,13 +169,12 @@ enum AppColor {
 
   final _i1.Color color;
 
-  _i1.Color withOpacity(double opacity) => color.withOpacity(opacity);
-  static AppColor fromColor(
-    _i1.Color color, [
-    AppColor? orElse,
-  ]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+  _i1.Color withOpacity(double opacity) => color.withValues(alpha: opacity);
+  static AppColor fromColor(_i1.Color color, [AppColor? orElse]) =>
+      AppColor.values.firstWhere(
+        (e) => e.color == color,
+        orElse: orElse == null ? null : () => orElse,
+      );
 }
 '''
     },

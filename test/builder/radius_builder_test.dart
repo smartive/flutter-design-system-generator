@@ -76,25 +76,23 @@ enum AppBorderRadius {
     bool topRight = false,
     bool bottomLeft = false,
     bool bottomRight = false,
-  }) =>
-      _i1.BorderRadius.only(
-        topLeft: topLeft ? asRadius : _i1.Radius.zero,
-        topRight: topRight ? asRadius : _i1.Radius.zero,
-        bottomLeft: bottomLeft ? asRadius : _i1.Radius.zero,
-        bottomRight: bottomRight ? asRadius : _i1.Radius.zero,
-      );
+  }) => _i1.BorderRadius.only(
+    topLeft: topLeft ? asRadius : _i1.Radius.zero,
+    topRight: topRight ? asRadius : _i1.Radius.zero,
+    bottomLeft: bottomLeft ? asRadius : _i1.Radius.zero,
+    bottomRight: bottomRight ? asRadius : _i1.Radius.zero,
+  );
   _i1.BorderRadius combine({
     AppBorderRadius? topLeft,
     AppBorderRadius? topRight,
     AppBorderRadius? bottomLeft,
     AppBorderRadius? bottomRight,
-  }) =>
-      all.copyWith(
-        topLeft: topLeft?.asRadius,
-        topRight: topRight?.asRadius,
-        bottomLeft: bottomLeft?.asRadius,
-        bottomRight: bottomRight?.asRadius,
-      );
+  }) => all.copyWith(
+    topLeft: topLeft?.asRadius,
+    topRight: topRight?.asRadius,
+    bottomLeft: bottomLeft?.asRadius,
+    bottomRight: bottomRight?.asRadius,
+  );
 }
 ''';
 
@@ -163,25 +161,23 @@ enum AppBorderRadius {
     bool topRight = false,
     bool bottomLeft = false,
     bool bottomRight = false,
-  }) =>
-      _i1.BorderRadius.only(
-        topLeft: topLeft ? asRadius : _i1.Radius.zero,
-        topRight: topRight ? asRadius : _i1.Radius.zero,
-        bottomLeft: bottomLeft ? asRadius : _i1.Radius.zero,
-        bottomRight: bottomRight ? asRadius : _i1.Radius.zero,
-      );
+  }) => _i1.BorderRadius.only(
+    topLeft: topLeft ? asRadius : _i1.Radius.zero,
+    topRight: topRight ? asRadius : _i1.Radius.zero,
+    bottomLeft: bottomLeft ? asRadius : _i1.Radius.zero,
+    bottomRight: bottomRight ? asRadius : _i1.Radius.zero,
+  );
   _i1.BorderRadius combine({
     AppBorderRadius? topLeft,
     AppBorderRadius? topRight,
     AppBorderRadius? bottomLeft,
     AppBorderRadius? bottomRight,
-  }) =>
-      all.copyWith(
-        topLeft: topLeft?.asRadius,
-        topRight: topRight?.asRadius,
-        bottomLeft: bottomLeft?.asRadius,
-        bottomRight: bottomRight?.asRadius,
-      );
+  }) => all.copyWith(
+    topLeft: topLeft?.asRadius,
+    topRight: topRight?.asRadius,
+    bottomLeft: bottomLeft?.asRadius,
+    bottomRight: bottomRight?.asRadius,
+  );
 }
 '''
     },
@@ -238,25 +234,23 @@ enum AppBorderRadius {
     bool topRight = false,
     bool bottomLeft = false,
     bool bottomRight = false,
-  }) =>
-      _i1.BorderRadius.only(
-        topLeft: topLeft ? asRadius : _i1.Radius.zero,
-        topRight: topRight ? asRadius : _i1.Radius.zero,
-        bottomLeft: bottomLeft ? asRadius : _i1.Radius.zero,
-        bottomRight: bottomRight ? asRadius : _i1.Radius.zero,
-      );
+  }) => _i1.BorderRadius.only(
+    topLeft: topLeft ? asRadius : _i1.Radius.zero,
+    topRight: topRight ? asRadius : _i1.Radius.zero,
+    bottomLeft: bottomLeft ? asRadius : _i1.Radius.zero,
+    bottomRight: bottomRight ? asRadius : _i1.Radius.zero,
+  );
   _i1.BorderRadius combine({
     AppBorderRadius? topLeft,
     AppBorderRadius? topRight,
     AppBorderRadius? bottomLeft,
     AppBorderRadius? bottomRight,
-  }) =>
-      all.copyWith(
-        topLeft: topLeft?.asRadius,
-        topRight: topRight?.asRadius,
-        bottomLeft: bottomLeft?.asRadius,
-        bottomRight: bottomRight?.asRadius,
-      );
+  }) => all.copyWith(
+    topLeft: topLeft?.asRadius,
+    topRight: topRight?.asRadius,
+    bottomLeft: bottomLeft?.asRadius,
+    bottomRight: bottomRight?.asRadius,
+  );
 }
 '''
     },

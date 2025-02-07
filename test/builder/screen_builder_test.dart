@@ -76,10 +76,17 @@ T responsiveValue<T>(
   T? lg,
   T? xl,
 }) {
-  final width = context != null
-      ? _i1.View.of(context).physicalSize.width
-      : _i1.WidgetsBinding.instance.platformDispatcher.views.first.physicalSize
-          .width;
+  final width =
+      context != null
+          ? _i1.View.of(context).physicalSize.width
+          : _i1
+              .WidgetsBinding
+              .instance
+              .platformDispatcher
+              .views
+              .first
+              .physicalSize
+              .width;
   final values = {
     AppBreakpoints.xl: xl,
     AppBreakpoints.lg: lg,
@@ -87,9 +94,10 @@ T responsiveValue<T>(
     AppBreakpoints.sm: sm,
   };
   return (values.entries
-      .skipWhile((e) => e.key > width)
-      .map((e) => e.value)
-      .firstWhere((e) => e != null, orElse: () => defaultValue) as T);
+          .skipWhile((e) => e.key > width)
+          .map((e) => e.value)
+          .firstWhere((e) => e != null, orElse: () => defaultValue)
+      as T);
 }
 ''';
 
@@ -166,18 +174,26 @@ T responsiveValue<T>(
   T? tablet,
   T? desktop,
 }) {
-  final width = context != null
-      ? _i1.View.of(context).physicalSize.width
-      : _i1.WidgetsBinding.instance.platformDispatcher.views.first.physicalSize
-          .width;
+  final width =
+      context != null
+          ? _i1.View.of(context).physicalSize.width
+          : _i1
+              .WidgetsBinding
+              .instance
+              .platformDispatcher
+              .views
+              .first
+              .physicalSize
+              .width;
   final values = {
     AppBreakpoints.desktop: desktop,
     AppBreakpoints.tablet: tablet,
   };
   return (values.entries
-      .skipWhile((e) => e.key > width)
-      .map((e) => e.value)
-      .firstWhere((e) => e != null, orElse: () => defaultValue) as T);
+          .skipWhile((e) => e.key > width)
+          .map((e) => e.value)
+          .firstWhere((e) => e != null, orElse: () => defaultValue)
+      as T);
 }
 '''
     },
@@ -242,18 +258,26 @@ T responsiveValue<T>(
   T? screen1,
   T? screen2,
 }) {
-  final width = context != null
-      ? _i1.View.of(context).physicalSize.width
-      : _i1.WidgetsBinding.instance.platformDispatcher.views.first.physicalSize
-          .width;
+  final width =
+      context != null
+          ? _i1.View.of(context).physicalSize.width
+          : _i1
+              .WidgetsBinding
+              .instance
+              .platformDispatcher
+              .views
+              .first
+              .physicalSize
+              .width;
   final values = {
     AppBreakpoints.screen2: screen2,
     AppBreakpoints.screen1: screen1,
   };
   return (values.entries
-      .skipWhile((e) => e.key > width)
-      .map((e) => e.value)
-      .firstWhere((e) => e != null, orElse: () => defaultValue) as T);
+          .skipWhile((e) => e.key > width)
+          .map((e) => e.value)
+          .firstWhere((e) => e != null, orElse: () => defaultValue)
+      as T);
 }
 '''
     },

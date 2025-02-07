@@ -50,10 +50,7 @@ T responsiveValue<T>(
       ? _i1.View.of(context).physicalSize.width
       : _i1.WidgetsBinding.instance.platformDispatcher.views.first.physicalSize
           .width;
-  final values = {
-    AppBreakpoints.big: big,
-    AppBreakpoints.medium: medium,
-  };
+  final values = {AppBreakpoints.big: big, AppBreakpoints.medium: medium};
   return (values.entries
       .skipWhile((e) => e.key > width)
       .map((e) => e.value)
