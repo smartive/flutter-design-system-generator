@@ -18,9 +18,9 @@ dependencies:
   dart_style: ^3.0.1
 
 dev_dependencies:
-  build_test:
+  build_test: ^2.2.3
   flutter:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  lints:
+  lints: ^5.1.1
