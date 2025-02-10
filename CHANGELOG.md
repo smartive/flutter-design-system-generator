@@ -1,3 +1,16 @@
+# [5.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v4.1.0...v5.0.0) (2025-02-10)
+
+
+* chore!: bump to v5.0.0 ([#12](https://github.com/smartive/flutter-design-system-generator/issues/12)) ([dc25b9e](https://github.com/smartive/flutter-design-system-generator/commit/dc25b9e43c426470604b052a1800633bd87ac8c5))
+
+
+### BREAKING CHANGES
+
+* - Use latestLanguageVersion in DartFormatter
+- Use caret syntax for dependencies
+
+Co-authored-by: Nando Schär <nando@smartive.ch>
+
 # [4.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v4.0.0...v4.1.0) (2023-12-12)
 
 
