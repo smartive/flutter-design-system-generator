@@ -30,4 +30,3 @@ jobs:
             @semantic-release/changelog
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_DEPLOYMENT_TOKEN }}
-          CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
