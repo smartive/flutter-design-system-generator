@@ -1,15 +1,17 @@
 # [5.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v4.1.0...v5.0.0) (2025-02-10)
 
 
+* ci: use service account for publishing to pubDev ([#13](https://github.com/smartive/flutter-design-system-generator/issues/13)) ([7a76173](https://github.com/smartive/flutter-design-system-generator/commit/7a76173cb20a3f465205e24ac1932f61f1855d61))
 * chore!: bump to v5.0.0 ([#12](https://github.com/smartive/flutter-design-system-generator/issues/12)) ([dc25b9e](https://github.com/smartive/flutter-design-system-generator/commit/dc25b9e43c426470604b052a1800633bd87ac8c5))
+* ci: update cycjimmy/semantic-release-action from v3 to v4 ([#11](https://github.com/smartive/flutter-design-system-generator/issues/11)) ([7aef10d](https://github.com/smartive/flutter-design-system-generator/commit/7aef10dc586f8b16dba73cf53b6459e83a7f8bca))
+* chore(deps)!: update dart_style from v2 to v3 ([#10](https://github.com/smartive/flutter-design-system-generator/issues/10)) ([9c9d3e2](https://github.com/smartive/flutter-design-system-generator/commit/9c9d3e20cbae9ee8e76a3f7f0e631db13b674970))
 
 
 ### BREAKING CHANGES
 
-* - Use latestLanguageVersion in DartFormatter
-- Use caret syntax for dependencies
+* Use caret syntax for dependencies
+* Use latestLanguageVersion in DartFormatter. This is required for compatibility with dart_style v3.
 
-Co-authored-by: Nando Schär <nando@smartive.ch>
 
 # [4.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v4.0.0...v4.1.0) (2023-12-12)
 
