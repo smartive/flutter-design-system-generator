@@ -3,7 +3,9 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder that generates spatial-related design system configurations.
 final class SpatialBuilder extends DesignSystemBuilder {
+  /// Creates a [SpatialBuilder] instance.
   SpatialBuilder() : super('spatials');
 
   @override

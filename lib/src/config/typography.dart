@@ -1,3 +1,4 @@
+/// Keys for text style properties.
 const _textStyleKeys = [
   'family',
   'weight',
@@ -7,20 +8,37 @@ const _textStyleKeys = [
   'wordSpacing'
 ];
 
+/// Represents a text style in the design system.
 class DesignSystemTextStyle {
+  /// The name of the text style.
   final String name;
+
+  /// The font family of the text style.
   final String? family;
+
+  /// The font size of the text style.
   final double? size;
+
+  /// The font weight of the text style.
   final int? weight;
+
+  /// The line height of the text style.
   final double? lineHeight;
+
+  /// The letter spacing of the text style.
   final double? letterSpacing;
+
+  /// The word spacing of the text style.
   final double? wordSpacing;
 
+  /// Creates a [DesignSystemTextStyle] instance.
   const DesignSystemTextStyle(this.name, this.family, this.size, this.weight,
       this.lineHeight, this.letterSpacing, this.wordSpacing);
 
+  /// The default value for text styles.
   static const defaultValue = <DesignSystemTextStyle>[];
 
+  /// Parses a map of text styles into a list of [DesignSystemTextStyle] instances.
   static Iterable<DesignSystemTextStyle> parse(Map<String, dynamic> textStyles,
       [String prefix = '']) sync* {
     for (final e in textStyles.entries) {
@@ -48,8 +66,10 @@ class DesignSystemTextStyle {
   @override
   String toString() => 'Text Style $name';
 
+  /// Checks if the text style name is valid.
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
+  /// Returns a valid name for the text style.
   String get validName => isValid ? name : 'typo$name';
 
   @override

@@ -1,5 +1,9 @@
 include: package:lints/recommended.yaml
 
+analyzer:
+  exclude:
+    - example/**
+
 linter:
   rules:
     always_declare_return_types: true
@@ -7,9 +11,10 @@ linter:
     eol_at_end_of_file: true
     library_private_types_in_public_api: false
     lines_longer_than_80_chars: false
+    prefer_expression_function_bodies: true
     prefer_final_fields: true
     prefer_final_in_for_each: true
     prefer_final_locals: true
     prefer_relative_imports: true
     prefer_single_quotes: true
-    prefer_expression_function_bodies: true
+    public_member_api_docs: true

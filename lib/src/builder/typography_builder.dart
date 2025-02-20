@@ -3,7 +3,9 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder that generates typography-related design system configurations.
 final class TypographyBuilder extends DesignSystemBuilder {
+  /// Creates a [TypographyBuilder] instance.
   TypographyBuilder() : super('typography');
 
   @override

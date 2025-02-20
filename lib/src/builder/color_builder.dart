@@ -3,7 +3,12 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder for generating color-related design system code.
+///
+/// This class extends [DesignSystemBuilder] and generates a Dart library
+/// that defines colors as constants and provides an enum for color references.
 final class ColorBuilder extends DesignSystemBuilder {
+  /// Creates a [ColorBuilder] instance.
   ColorBuilder() : super('colors');
 
   @override

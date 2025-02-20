@@ -7,11 +7,22 @@ import 'package:dart_style/dart_style.dart';
 
 import '../config/config.dart';
 
+/// Abstract base class for generating design system-related Dart files.
+///
+/// This class implements the [Builder] interface and is responsible for
+/// generating Dart source files from a JSON-based configuration.
 abstract base class DesignSystemBuilder implements Builder {
+  /// The file extension part for the generated Dart file.
   final String part;
 
+  /// Creates a [DesignSystemBuilder] with the specified [part].
   DesignSystemBuilder(this.part);
 
+  /// Builds a [Library] representation based on the given [config].
+  ///
+  /// This method should be implemented by subclasses to define how
+  /// the Dart library should be constructed from the provided
+  /// [DesignSystemConfig].
   Library buildLibrary(DesignSystemConfig config);
 
   @override
