@@ -3,7 +3,9 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder that generates screen-related design system configurations.
 final class ScreenBuilder extends DesignSystemBuilder {
+  /// Creates a [ScreenBuilder] instance.
   ScreenBuilder() : super('screens');
 
   @override

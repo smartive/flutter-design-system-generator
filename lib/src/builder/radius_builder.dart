@@ -3,7 +3,12 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder for generating border radius-related design system code.
+///
+/// This class extends [DesignSystemBuilder] and generates a Dart library
+/// that defines border radii as constants and provides an enum for border radius references.
 final class RadiusBuilder extends DesignSystemBuilder {
+  /// Creates a [RadiusBuilder] instance.
   RadiusBuilder() : super('radii');
 
   @override

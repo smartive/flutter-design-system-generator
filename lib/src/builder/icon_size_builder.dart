@@ -3,7 +3,12 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder for generating icon size-related design system code.
+///
+/// This class extends [DesignSystemBuilder] and generates a Dart library
+/// that defines icon sizes as constants and provides an enum for icon size references.
 final class IconSizeBuilder extends DesignSystemBuilder {
+  /// Creates a [IconSizeBuilder] instance.
   IconSizeBuilder() : super('icon_sizes');
 
   @override

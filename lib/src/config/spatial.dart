@@ -1,9 +1,15 @@
+/// Represents a spatial value in the design system.
 class DesignSystemSpatial {
+  /// The name of the spatial value.
   final String name;
+
+  /// The space value.
   final double space;
 
+  /// Creates a [DesignSystemSpatial] instance.
   const DesignSystemSpatial(this.name, this.space);
 
+  /// The default values for spatial values.
   static const defaultValue = [
     DesignSystemSpatial('spatial0', 0),
     DesignSystemSpatial('spatial1', 1),
@@ -43,6 +49,7 @@ class DesignSystemSpatial {
     DesignSystemSpatial('spatial512', 512),
   ];
 
+  /// Parses a map of spatial values into a list of [DesignSystemSpatial] instances.
   static Iterable<DesignSystemSpatial> parse(
       Map<String, dynamic> spatials) sync* {
     for (final e in spatials.entries) {
@@ -59,8 +66,10 @@ class DesignSystemSpatial {
   @override
   String toString() => 'Spatial $name: ${space}px';
 
+  /// Checks if the spatial name is valid.
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
+  /// Returns a valid name for the spatial value.
   String get validName => isValid ? name : 'spatial$name';
 
   @override

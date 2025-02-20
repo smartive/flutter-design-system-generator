@@ -3,7 +3,12 @@ import 'package:code_builder/code_builder.dart';
 import '../config/config.dart';
 import 'base_builder.dart';
 
+/// A builder for generating border width-related design system code.
+///
+/// This class extends [DesignSystemBuilder] and generates a Dart library
+/// that defines border widths as constants and provides an enum for border width references.
 final class BorderWidthBuilder extends DesignSystemBuilder {
+  /// Creates a [BorderWidthBuilder] instance.
   BorderWidthBuilder() : super('border_widths');
 
   @override

@@ -1,15 +1,22 @@
+/// Represents a color in the design system.
 class DesignSystemColor {
+  /// The name of the color.
   final String name;
+
+  /// The hex value of the color.
   final String hex;
 
+  /// Creates a [DesignSystemColor] instance.
   const DesignSystemColor(this.name, this.hex);
 
+  /// The default values for colors.
   static const defaultValue = [
     DesignSystemColor('black', '#000000'),
     DesignSystemColor('white', '#FFFFFF'),
     DesignSystemColor('transparent', '#00000000'),
   ];
 
+  /// Parses a map of colors into a list of [DesignSystemColor] instances.
   static Iterable<DesignSystemColor> parse(Map<String, dynamic> colors,
       [String prefix = '']) sync* {
     for (final e in colors.entries) {
@@ -29,10 +36,12 @@ class DesignSystemColor {
   @override
   String toString() => 'Color $name: $hex';
 
+  /// Checks if the hex value is valid.
   bool get isValid =>
       RegExp(r'^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$')
           .hasMatch(hex);
 
+  /// Returns the color hex value in ARGB format.
   String get colorHex {
     if (!isValid) {
       return '00000000';
@@ -52,8 +61,10 @@ class DesignSystemColor {
     return '${hex.substring(7, 9)}${hex.substring(1, 7)}';
   }
 
+  /// Checks if the name is valid.
   bool get isNameValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
+  /// Returns a valid name for the color.
   String get validName => isNameValid ? name : 'color$name';
 
   @override
