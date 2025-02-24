@@ -8,6 +8,9 @@ import 'typography.dart';
 
 /// Represents the configuration of the design system.
 class DesignSystemConfig {
+  /// Name of the design system.
+  final String name;
+
   /// The list of colors in the design system.
   final List<DesignSystemColor> colors;
 
@@ -31,6 +34,7 @@ class DesignSystemConfig {
 
   /// Creates a [DesignSystemConfig] instance.
   const DesignSystemConfig._({
+    required this.name,
     required this.colors,
     required this.screens,
     required this.spatials,
@@ -41,8 +45,9 @@ class DesignSystemConfig {
   });
 
   /// Creates a [DesignSystemConfig] instance from a JSON map.
-  factory DesignSystemConfig.fromJson(Map<String, dynamic> json) =>
+  factory DesignSystemConfig.fromJson(Map<String, dynamic> json, String name) =>
       DesignSystemConfig._(
+        name: name,
         colors: switch (json['colors']) {
           bool() => [],
           null => DesignSystemColor.defaultValue,
