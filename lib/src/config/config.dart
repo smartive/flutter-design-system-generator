@@ -6,15 +6,30 @@ import 'screen.dart';
 import 'spatial.dart';
 import 'typography.dart';
 
+/// Represents the configuration of the design system.
 class DesignSystemConfig {
+  /// The list of colors in the design system.
   final List<DesignSystemColor> colors;
+
+  /// The list of screen sizes in the design system.
   final List<DesignSystemScreen> screens;
+
+  /// The list of spatial values in the design system.
   final List<DesignSystemSpatial> spatials;
+
+  /// The list of border widths in the design system.
   final List<DesignSystemBorderWidth> borderWidths;
+
+  /// The list of border radii in the design system.
   final List<DesignSystemBorderRadius> radii;
+
+  /// The list of text styles in the design system.
   final List<DesignSystemTextStyle> typography;
+
+  /// The list of icon sizes in the design system.
   final List<DesignSystemIconSize> iconSizes;
 
+  /// Creates a [DesignSystemConfig] instance.
   const DesignSystemConfig._({
     required this.colors,
     required this.screens,
@@ -25,6 +40,7 @@ class DesignSystemConfig {
     required this.iconSizes,
   });
 
+  /// Creates a [DesignSystemConfig] instance from a JSON map.
   factory DesignSystemConfig.fromJson(Map<String, dynamic> json) =>
       DesignSystemConfig._(
         colors: switch (json['colors']) {

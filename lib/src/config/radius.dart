@@ -1,9 +1,15 @@
+/// Represents a border radius in the design system.
 class DesignSystemBorderRadius {
+  /// The name of the border radius.
   final String name;
+
+  /// The radius value.
   final double radius;
 
+  /// Creates a [DesignSystemBorderRadius] instance.
   const DesignSystemBorderRadius(this.name, this.radius);
 
+  /// The default values for border radii.
   static const defaultValue = [
     DesignSystemBorderRadius('none', 0),
     DesignSystemBorderRadius('small', 2),
@@ -13,6 +19,7 @@ class DesignSystemBorderRadius {
     DesignSystemBorderRadius('full', 9999),
   ];
 
+  /// Parses a map of border radii into a list of [DesignSystemBorderRadius] instances.
   static Iterable<DesignSystemBorderRadius> parse(
       Map<String, dynamic> radii) sync* {
     for (final e in radii.entries) {
@@ -29,8 +36,10 @@ class DesignSystemBorderRadius {
   @override
   String toString() => 'Border Radius $name: ${radius}px';
 
+  /// Checks if the border radius name is valid.
   bool get isValid => name.startsWith(RegExp(r'[A-Za-z]'));
 
+  /// Returns a valid name for the border radius.
   String get validName => isValid ? name : 'radius$name';
 
   @override
