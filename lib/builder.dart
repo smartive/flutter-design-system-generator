@@ -1,5 +1,6 @@
 import 'package:build/build.dart';
 
+import 'src/builder/border_builder.dart';
 import 'src/builder/border_width_builder.dart';
 import 'src/builder/color_builder.dart';
 import 'src/builder/icon_size_builder.dart';
@@ -22,6 +23,11 @@ Builder spatialBuilder(BuilderOptions options) => SpatialBuilder();
 ///
 /// This builder generates border width-related design tokens.
 Builder borderWidthBuilder(BuilderOptions options) => BorderWidthBuilder();
+
+/// Creates a [BorderBuilder] instance.
+///
+/// This builder generates border-related util functions.
+Builder borderBuilder(BuilderOptions options) => BorderBuilder();
 
 /// Creates a [RadiusBuilder] instance.
 ///

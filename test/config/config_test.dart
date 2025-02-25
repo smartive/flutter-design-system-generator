@@ -17,7 +17,7 @@ void main() {
         'spacings': false,
         'borderRadius': false,
         'typography': false,
-      });
+      }, 'App');
 
       expect(config.colors, isEmpty);
       expect(config.screens, isEmpty);
@@ -27,7 +27,7 @@ void main() {
     });
 
     test('should return default if value is omitted.', () {
-      final config = DesignSystemConfig.fromJson({});
+      final config = DesignSystemConfig.fromJson({}, 'App');
 
       expect(config.colors, DesignSystemColor.defaultValue);
       expect(config.screens, DesignSystemScreen.defaultValue);
@@ -41,7 +41,7 @@ void main() {
     test('should correctly parse screens.', () {
       final config = DesignSystemConfig.fromJson({
         'screens': {'medium': 700, 'big': 1200},
-      });
+      }, 'App');
 
       expect(config.screens, [
         DesignSystemScreen('medium', 700),
@@ -52,7 +52,7 @@ void main() {
     test('should correctly parse spacings.', () {
       final config = DesignSystemConfig.fromJson({
         'spacings': {'small': 4, 'medium': 8, 'large': 16},
-      });
+      }, 'App');
 
       expect(config.spatials, [
         DesignSystemSpatial('small', 4),
@@ -64,7 +64,7 @@ void main() {
     test('should correctly parse border widths.', () {
       final config = DesignSystemConfig.fromJson({
         'borderWidths': {'b1': 1, 'b2': 2},
-      });
+      }, 'App');
 
       expect(config.borderWidths, [
         DesignSystemBorderWidth('b1', 1),
@@ -75,7 +75,7 @@ void main() {
     test('should correctly parse border radii.', () {
       final config = DesignSystemConfig.fromJson({
         'borderRadius': {'small': 2, 'medium': 6, 'large': 8},
-      });
+      }, 'App');
 
       expect(config.radii, [
         DesignSystemBorderRadius('small', 2),
@@ -91,7 +91,7 @@ void main() {
           'secondary': '#FFFFFF',
           'accent': {'DEFAULT': '#FF0000', 'light': '#00FF00'},
         },
-      });
+      }, 'App');
 
       expect(config.colors, [
         DesignSystemColor('accent', '#FF0000'),
@@ -116,7 +116,7 @@ void main() {
             'family': 'comic sans',
           },
         },
-      });
+      }, 'App');
 
       expect(config.typography, [
         DesignSystemTextStyle(
@@ -129,7 +129,7 @@ void main() {
     test('should correctly parse icon sizes.', () {
       final config = DesignSystemConfig.fromJson({
         'iconSizes': {'small': 16, 'medium': 20, 'large': 24},
-      });
+      }, 'App');
 
       expect(config.iconSizes, [
         DesignSystemIconSize('small', 16),
