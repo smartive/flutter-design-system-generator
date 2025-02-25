@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v5.0.0...v5.1.0) (2025-02-25)
+
+
+### Features
+
+* add border builder ([#17](https://github.com/smartive/flutter-design-system-generator/issues/17)) ([2d8004f](https://github.com/smartive/flutter-design-system-generator/commit/2d8004f2de33b90bf54e333925c69ad47e3bba0d))
+
 # [5.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v4.1.0...v5.0.0) (2025-02-10)
 
 
