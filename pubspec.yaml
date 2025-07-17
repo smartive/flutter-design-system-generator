@@ -13,7 +13,7 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  build: ^2.4.2
+  build: ^3.0.0
   code_builder: ^4.10.1
   dart_style: ^3.0.1
 
