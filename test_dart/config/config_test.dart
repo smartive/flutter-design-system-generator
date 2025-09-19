@@ -6,7 +6,7 @@ import 'package:design_system_generator/src/config/radius.dart';
 import 'package:design_system_generator/src/config/screen.dart';
 import 'package:design_system_generator/src/config/spatial.dart';
 import 'package:design_system_generator/src/config/typography.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('DesignSystemConfig', () {
@@ -105,22 +105,23 @@ void main() {
       final config = DesignSystemConfig.fromJson({
         'typography': {
           'h': {
-            '1': {
-              'family': 'Roboto',
-            },
-            '2': {
-              'family': 'Arial',
-            },
+            '1': {'family': 'Roboto'},
+            '2': {'family': 'Arial'},
           },
-          'button': {
-            'family': 'comic sans',
-          },
+          'button': {'family': 'comic sans'},
         },
       }, 'App');
 
       expect(config.typography, [
         DesignSystemTextStyle(
-            'button', 'comic sans', null, null, null, null, null),
+          'button',
+          'comic sans',
+          null,
+          null,
+          null,
+          null,
+          null,
+        ),
         DesignSystemTextStyle('h1', 'Roboto', null, null, null, null, null),
         DesignSystemTextStyle('h2', 'Arial', null, null, null, null, null),
       ]);

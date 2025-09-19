@@ -1,12 +1,14 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/spatial_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('SpatialBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(SpatialBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(SpatialBuilder(), inputs, outputs: outputs),
+      );
     }
   });
 }
@@ -302,7 +304,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
           "a": 2,
           "b": 4
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.spatials.dart': '''
@@ -369,7 +371,7 @@ enum AppSpatial {
     bottom: bottom?.value,
   );
 }
-'''
+''',
     },
   ),
   (
@@ -380,7 +382,7 @@ enum AppSpatial {
           "1": "2",
           "2": 4
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.spatials.dart': '''
@@ -447,7 +449,7 @@ enum AppSpatial {
     bottom: bottom?.value,
   );
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"spacings": false}'}, {}),

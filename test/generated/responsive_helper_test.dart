@@ -48,7 +48,12 @@ T responsiveValue<T>(
   final width = context != null
       ? View.of(context).physicalSize.width
       : WidgetsBinding
-          .instance.platformDispatcher.views.first.physicalSize.width;
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.xl: xl,
     AppBreakpoints.lg: lg,
@@ -56,9 +61,10 @@ T responsiveValue<T>(
     AppBreakpoints.sm: sm,
   };
   return values.entries
-      .skipWhile((e) => e.key > width)
-      .map((e) => e.value)
-      .firstWhere((e) => e != null, orElse: () => defaultValue) as T;
+          .skipWhile((e) => e.key > width)
+          .map((e) => e.value)
+          .firstWhere((e) => e != null, orElse: () => defaultValue)
+      as T;
 }
 
 void main() {
@@ -72,44 +78,70 @@ void main() {
 
   for (final testCase in testCases.entries) {
     testWidgets(
-        'should return the correct value (${testCase.value}) for the screen size (${testCase.key})',
-        (widgetTester) async {
-      addTearDown(widgetTester.view.reset);
+      'should return the correct value (${testCase.value}) for the screen size (${testCase.key})',
+      (widgetTester) async {
+        addTearDown(widgetTester.view.reset);
 
-      widgetTester.view.devicePixelRatio = 1;
-      widgetTester.view.physicalSize = Size(testCase.key, 800);
+        widgetTester.view.devicePixelRatio = 1;
+        widgetTester.view.physicalSize = Size(testCase.key, 800);
 
-      await widgetTester.pumpWidget(MaterialApp(
-          home: Scaffold(
+        await widgetTester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
               body: SafeArea(
-                  child: Center(
-                      child: Text(responsiveValue('xs',
-                          sm: 'sm', md: 'md', lg: 'lg', xl: 'xl')))))));
+                child: Center(
+                  child: Text(
+                    responsiveValue(
+                      'xs',
+                      sm: 'sm',
+                      md: 'md',
+                      lg: 'lg',
+                      xl: 'xl',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
 
-      expect(find.text(testCase.value), findsOneWidget);
-    });
+        expect(find.text(testCase.value), findsOneWidget);
+      },
+    );
 
     testWidgets(
-        'should return the correct value (${testCase.value}) for the screen size (${testCase.key}) with context',
-        (widgetTester) async {
-      addTearDown(widgetTester.view.reset);
+      'should return the correct value (${testCase.value}) for the screen size (${testCase.key}) with context',
+      (widgetTester) async {
+        addTearDown(widgetTester.view.reset);
 
-      widgetTester.view.devicePixelRatio = 1;
-      widgetTester.view.physicalSize = Size(testCase.key, 800);
+        widgetTester.view.devicePixelRatio = 1;
+        widgetTester.view.physicalSize = Size(testCase.key, 800);
 
-      await widgetTester.pumpWidget(MaterialApp(
-          home: Scaffold(
+        await widgetTester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
               body: SafeArea(
-                  child: Center(
-                      child: Builder(
-                          builder: (context) => Text(responsiveValue('xs',
-                              context: context,
-                              sm: 'sm',
-                              md: 'md',
-                              lg: 'lg',
-                              xl: 'xl'))))))));
+                child: Center(
+                  child: Builder(
+                    builder: (context) => Text(
+                      responsiveValue(
+                        'xs',
+                        context: context,
+                        sm: 'sm',
+                        md: 'md',
+                        lg: 'lg',
+                        xl: 'xl',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
 
-      expect(find.text(testCase.value), findsOneWidget);
-    });
+        expect(find.text(testCase.value), findsOneWidget);
+      },
+    );
   }
 }

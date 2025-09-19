@@ -1,12 +1,14 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/color_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ColorBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(ColorBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(ColorBuilder(), inputs, outputs: outputs),
+      );
     }
   });
 }
@@ -78,7 +80,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
             "DEFAULT": "#000000"
           }
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.colors.dart': '''
@@ -130,7 +132,7 @@ enum AppColor {
         orElse: orElse == null ? null : () => orElse,
       );
 }
-'''
+''',
     },
   ),
   (
@@ -141,7 +143,7 @@ enum AppColor {
           "foo": "bar",
           "123": "#aabbccdd"
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.colors.dart': '''
@@ -176,7 +178,7 @@ enum AppColor {
         orElse: orElse == null ? null : () => orElse,
       );
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"colors": false}'}, {}),

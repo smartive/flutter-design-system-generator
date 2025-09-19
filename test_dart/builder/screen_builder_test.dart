@@ -1,12 +1,14 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/screen_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ScreenBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(ScreenBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(ScreenBuilder(), inputs, outputs: outputs),
+      );
     }
   });
 }
@@ -122,7 +124,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
           "tablet": 200,
           "desktop": 440
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.screens.dart': '''
@@ -195,7 +197,7 @@ T responsiveValue<T>(
           .firstWhere((e) => e != null, orElse: () => defaultValue)
       as T);
 }
-'''
+''',
     },
   ),
   (
@@ -206,7 +208,7 @@ T responsiveValue<T>(
           "1": "200",
           "2": 440
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.screens.dart': '''
@@ -279,7 +281,7 @@ T responsiveValue<T>(
           .firstWhere((e) => e != null, orElse: () => defaultValue)
       as T);
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"screens": false}'}, {}),

@@ -5,7 +5,7 @@ const _textStyleKeys = [
   'size',
   'lineHeight',
   'letterSpacing',
-  'wordSpacing'
+  'wordSpacing',
 ];
 
 /// Represents a text style in the design system.
@@ -32,15 +32,24 @@ class DesignSystemTextStyle {
   final double? wordSpacing;
 
   /// Creates a [DesignSystemTextStyle] instance.
-  const DesignSystemTextStyle(this.name, this.family, this.size, this.weight,
-      this.lineHeight, this.letterSpacing, this.wordSpacing);
+  const DesignSystemTextStyle(
+    this.name,
+    this.family,
+    this.size,
+    this.weight,
+    this.lineHeight,
+    this.letterSpacing,
+    this.wordSpacing,
+  );
 
   /// The default value for text styles.
   static const defaultValue = <DesignSystemTextStyle>[];
 
   /// Parses a map of text styles into a list of [DesignSystemTextStyle] instances.
-  static Iterable<DesignSystemTextStyle> parse(Map<String, dynamic> textStyles,
-      [String prefix = '']) sync* {
+  static Iterable<DesignSystemTextStyle> parse(
+    Map<String, dynamic> textStyles, [
+    String prefix = '',
+  ]) sync* {
     for (final e in textStyles.entries) {
       var name = e.key.replaceAll('DEFAULT', '');
       if (prefix != '' && name.length > 1) {
@@ -50,13 +59,14 @@ class DesignSystemTextStyle {
       if (e.value is Map<String, dynamic> &&
           _textStyleKeys.any(e.value.containsKey)) {
         yield DesignSystemTextStyle(
-            '$prefix$name',
-            e.value['family'],
-            e.value['size']?.toDouble(),
-            e.value['weight'],
-            e.value['lineHeight']?.toDouble(),
-            e.value['letterSpacing']?.toDouble(),
-            e.value['wordSpacing']?.toDouble());
+          '$prefix$name',
+          e.value['family'],
+          e.value['size']?.toDouble(),
+          e.value['weight'],
+          e.value['lineHeight']?.toDouble(),
+          e.value['letterSpacing']?.toDouble(),
+          e.value['wordSpacing']?.toDouble(),
+        );
       } else {
         yield* parse(e.value as Map<String, dynamic>, '$prefix$name');
       }

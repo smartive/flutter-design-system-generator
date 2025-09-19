@@ -1,12 +1,14 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/border_width_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('BorderWidthBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(BorderWidthBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(BorderWidthBuilder(), inputs, outputs: outputs),
+      );
     }
   });
 }
@@ -18,7 +20,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
     'multiple design system',
     {
       'a|lib/a.design-system.json': '{"borderWidths": {"b1": 1, "b2": 2}}',
-      'a|lib/b.design-system.json': '{"borderWidths": {"b3": 3, "b4": 4}}'
+      'a|lib/b.design-system.json': '{"borderWidths": {"b3": 3, "b4": 4}}',
     },
     {
       'a|lib/a.border_widths.dart': '''
@@ -74,8 +76,8 @@ enum AppBorderWidth {
 
   final double width;
 }
-'''
-    }
+''',
+    },
   ),
   (
     'valid border widths',
@@ -85,7 +87,7 @@ enum AppBorderWidth {
           "b1": 1,
           "b2": 2
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.border_widths.dart': '''
@@ -114,7 +116,7 @@ enum AppBorderWidth {
 
   final double width;
 }
-'''
+''',
     },
   ),
   (
@@ -125,7 +127,7 @@ enum AppBorderWidth {
           "b1": "1",
           "b2": 2
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.border_widths.dart': '''
@@ -154,7 +156,7 @@ enum AppBorderWidth {
 
   final double width;
 }
-'''
+''',
     },
   ),
 ];

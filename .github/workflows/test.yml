@@ -20,6 +20,7 @@ jobs:
       - run: flutter pub get
       - run: dart format --output=none --set-exit-if-changed .
       - run: flutter analyze
+      - run: dart test test_dart
       - run: flutter test --coverage
       - name: Setup LCOV
         uses: hrishikesh-kadam/setup-lcov@v1

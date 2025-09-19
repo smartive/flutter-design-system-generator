@@ -51,7 +51,8 @@ class DesignSystemSpatial {
 
   /// Parses a map of spatial values into a list of [DesignSystemSpatial] instances.
   static Iterable<DesignSystemSpatial> parse(
-      Map<String, dynamic> spatials) sync* {
+    Map<String, dynamic> spatials,
+  ) sync* {
     for (final e in spatials.entries) {
       if (e.value is double) {
         yield DesignSystemSpatial(e.key, e.value);

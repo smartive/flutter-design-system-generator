@@ -1,12 +1,14 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/radius_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('RadiusBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(RadiusBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(RadiusBuilder(), inputs, outputs: outputs),
+      );
     }
   });
 }
@@ -117,7 +119,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
           "first": 15,
           "second": 30
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.radii.dart': '''
@@ -179,7 +181,7 @@ enum AppBorderRadius {
     bottomRight: bottomRight?.asRadius,
   );
 }
-'''
+''',
     },
   ),
   (
@@ -190,7 +192,7 @@ enum AppBorderRadius {
           "1": "15",
           "2": 40
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.radii.dart': '''
@@ -252,7 +254,7 @@ enum AppBorderRadius {
     bottomRight: bottomRight?.asRadius,
   );
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"borderRadius": false}'}, {}),

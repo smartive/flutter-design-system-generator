@@ -1,12 +1,14 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/border_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('BorderBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(BorderBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(BorderBuilder(), inputs, outputs: outputs),
+      );
     }
   });
 }
@@ -18,7 +20,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
     'multiple design system',
     {
       'a|lib/a.design-system.json': '{"borderWidths": {"b1": 1, "b2": 2}}',
-      'a|lib/b.design-system.json': '{"borderWidths": {"b3": 3, "b4": 4}}'
+      'a|lib/b.design-system.json': '{"borderWidths": {"b3": 3, "b4": 4}}',
     },
     {
       'a|lib/a.borders.dart': '''
@@ -144,7 +146,7 @@ abstract final class AppBorders {
 
   static _i1.Border none() => _i1.Border.fromBorderSide(_i1.BorderSide.none);
 }
-'''
-    }
+''',
+    },
   ),
 ];
