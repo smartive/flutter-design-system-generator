@@ -24,7 +24,7 @@ jobs:
       # Dart tests with coverage
       # ----------------------------
       - run: dart pub add --dev coverage
-      - run: dart test --coverage=coverage_dart
+      - run: dart test test_dart --coverage=coverage_dart
       - run: dart run coverage:format_coverage \
           --lcov \
           --in=coverage_dart \
