@@ -7,6 +7,14 @@ issue_tracker: https://github.com/smartive/flutter-design-system-generator/issue
 homepage: https://github.com/smartive/flutter-design-system-generator
 repository: https://github.com/smartive/flutter-design-system-generator.git
 
+topics:
+  - design-system
+  - flutter
+  - code-generation
+  - ui
+  - theming
+  - build-runner
+
 version: 5.1.0
 
 environment:
