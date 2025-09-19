@@ -7,7 +7,12 @@ void main() {
     for (final (name, inputs, outputs) in _cases) {
       test(
         'should generate correct code ($name).',
-        () => testBuilder(IconSizeBuilder(), inputs, outputs: outputs),
+        () => testBuilder(
+          IconSizeBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
       );
     }
   });

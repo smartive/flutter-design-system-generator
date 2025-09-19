@@ -7,7 +7,12 @@ void main() {
     for (final (name, inputs, outputs) in _cases) {
       test(
         'should generate correct code ($name).',
-        () => testBuilder(ScreenBuilder(), inputs, outputs: outputs),
+        () => testBuilder(
+          ScreenBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
       );
     }
   });
@@ -78,17 +83,16 @@ T responsiveValue<T>(
   T? lg,
   T? xl,
 }) {
-  final width =
-      context != null
-          ? _i1.View.of(context).physicalSize.width
-          : _i1
-              .WidgetsBinding
-              .instance
-              .platformDispatcher
-              .views
-              .first
-              .physicalSize
-              .width;
+  final width = context != null
+      ? _i1.View.of(context).physicalSize.width
+      : _i1
+            .WidgetsBinding
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.xl: xl,
     AppBreakpoints.lg: lg,
@@ -176,17 +180,16 @@ T responsiveValue<T>(
   T? tablet,
   T? desktop,
 }) {
-  final width =
-      context != null
-          ? _i1.View.of(context).physicalSize.width
-          : _i1
-              .WidgetsBinding
-              .instance
-              .platformDispatcher
-              .views
-              .first
-              .physicalSize
-              .width;
+  final width = context != null
+      ? _i1.View.of(context).physicalSize.width
+      : _i1
+            .WidgetsBinding
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.desktop: desktop,
     AppBreakpoints.tablet: tablet,
@@ -260,17 +263,16 @@ T responsiveValue<T>(
   T? screen1,
   T? screen2,
 }) {
-  final width =
-      context != null
-          ? _i1.View.of(context).physicalSize.width
-          : _i1
-              .WidgetsBinding
-              .instance
-              .platformDispatcher
-              .views
-              .first
-              .physicalSize
-              .width;
+  final width = context != null
+      ? _i1.View.of(context).physicalSize.width
+      : _i1
+            .WidgetsBinding
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.screen2: screen2,
     AppBreakpoints.screen1: screen1,
