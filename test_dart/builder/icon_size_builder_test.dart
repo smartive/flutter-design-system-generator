@@ -1,12 +1,19 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/icon_size_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('IconSizeBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(IconSizeBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(
+          IconSizeBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
+      );
     }
   });
 }
@@ -18,7 +25,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
     'multiple design system',
     {
       'a|lib/a.design-system.json': '{"iconSizes": {"a": 16, "b": 24}}',
-      'a|lib/b.design-system.json': '{"iconSizes": {"c": 32, "d": 64}}'
+      'a|lib/b.design-system.json': '{"iconSizes": {"c": 32, "d": 64}}',
     },
     {
       'a|lib/a.icon_sizes.dart': '''
@@ -78,8 +85,8 @@ enum AppIconSize {
 
   int get integer => value.toInt();
 }
-'''
-    }
+''',
+    },
   ),
   (
     'valid icon sizes',
@@ -89,7 +96,7 @@ enum AppIconSize {
           "a": 16,
           "b": 24
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.icon_sizes.dart': '''
@@ -120,7 +127,7 @@ enum AppIconSize {
 
   int get integer => value.toInt();
 }
-'''
+''',
     },
   ),
   (
@@ -131,7 +138,7 @@ enum AppIconSize {
           "1": "16",
           "2": 24
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.icon_sizes.dart': '''
@@ -162,7 +169,7 @@ enum AppIconSize {
 
   int get integer => value.toInt();
 }
-'''
+''',
     },
   ),
 ];

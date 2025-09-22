@@ -21,7 +21,8 @@ class DesignSystemBorderRadius {
 
   /// Parses a map of border radii into a list of [DesignSystemBorderRadius] instances.
   static Iterable<DesignSystemBorderRadius> parse(
-      Map<String, dynamic> radii) sync* {
+    Map<String, dynamic> radii,
+  ) sync* {
     for (final e in radii.entries) {
       if (e.value is double) {
         yield DesignSystemBorderRadius(e.key, e.value);

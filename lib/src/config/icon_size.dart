@@ -14,7 +14,8 @@ class DesignSystemIconSize {
 
   /// Parses a map of icon sizes into a list of [DesignSystemIconSize] instances.
   static Iterable<DesignSystemIconSize> parse(
-      Map<String, dynamic> iconSizes) sync* {
+    Map<String, dynamic> iconSizes,
+  ) sync* {
     for (final e in iconSizes.entries) {
       if (e.value is double) {
         yield DesignSystemIconSize(e.key, e.value);

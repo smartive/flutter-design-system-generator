@@ -33,8 +33,10 @@ enum AppColor {
   Color withOpacity(double opacity) => color.withValues(alpha: opacity);
 
   static AppColor fromColor(Color color, [AppColor? orElse]) =>
-      AppColor.values.firstWhere((e) => e.color == color,
-          orElse: orElse == null ? null : () => orElse);
+      AppColor.values.firstWhere(
+        (e) => e.color == color,
+        orElse: orElse == null ? null : () => orElse,
+      );
 }
 
 void main() {
@@ -49,10 +51,12 @@ void main() {
 
   test('should correctly return "orElse" if color not found', () async {
     expect(
-        AppColor.fromColor(Color(0xFFaabbcc), AppColor.transparent)
-            .color
-            .hexString,
-        '00000000');
+      AppColor.fromColor(
+        Color(0xFFaabbcc),
+        AppColor.transparent,
+      ).color.hexString,
+      '00000000',
+    );
   });
 
   test('should throw if no orElse is provided and no color is found', () async {

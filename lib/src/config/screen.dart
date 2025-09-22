@@ -19,7 +19,8 @@ class DesignSystemScreen {
 
   /// Parses a map of screen sizes into a list of [DesignSystemScreen] instances.
   static Iterable<DesignSystemScreen> parse(
-      Map<String, dynamic> spatials) sync* {
+    Map<String, dynamic> spatials,
+  ) sync* {
     for (final e in spatials.entries) {
       if (e.value is double) {
         yield DesignSystemScreen(e.key, e.value);

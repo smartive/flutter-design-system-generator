@@ -1,12 +1,19 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/screen_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ScreenBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(ScreenBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(
+          ScreenBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
+      );
     }
   });
 }
@@ -76,17 +83,16 @@ T responsiveValue<T>(
   T? lg,
   T? xl,
 }) {
-  final width =
-      context != null
-          ? _i1.View.of(context).physicalSize.width
-          : _i1
-              .WidgetsBinding
-              .instance
-              .platformDispatcher
-              .views
-              .first
-              .physicalSize
-              .width;
+  final width = context != null
+      ? _i1.View.of(context).physicalSize.width
+      : _i1
+            .WidgetsBinding
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.xl: xl,
     AppBreakpoints.lg: lg,
@@ -122,7 +128,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
           "tablet": 200,
           "desktop": 440
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.screens.dart': '''
@@ -174,17 +180,16 @@ T responsiveValue<T>(
   T? tablet,
   T? desktop,
 }) {
-  final width =
-      context != null
-          ? _i1.View.of(context).physicalSize.width
-          : _i1
-              .WidgetsBinding
-              .instance
-              .platformDispatcher
-              .views
-              .first
-              .physicalSize
-              .width;
+  final width = context != null
+      ? _i1.View.of(context).physicalSize.width
+      : _i1
+            .WidgetsBinding
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.desktop: desktop,
     AppBreakpoints.tablet: tablet,
@@ -195,7 +200,7 @@ T responsiveValue<T>(
           .firstWhere((e) => e != null, orElse: () => defaultValue)
       as T);
 }
-'''
+''',
     },
   ),
   (
@@ -206,7 +211,7 @@ T responsiveValue<T>(
           "1": "200",
           "2": 440
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.screens.dart': '''
@@ -258,17 +263,16 @@ T responsiveValue<T>(
   T? screen1,
   T? screen2,
 }) {
-  final width =
-      context != null
-          ? _i1.View.of(context).physicalSize.width
-          : _i1
-              .WidgetsBinding
-              .instance
-              .platformDispatcher
-              .views
-              .first
-              .physicalSize
-              .width;
+  final width = context != null
+      ? _i1.View.of(context).physicalSize.width
+      : _i1
+            .WidgetsBinding
+            .instance
+            .platformDispatcher
+            .views
+            .first
+            .physicalSize
+            .width;
   final values = {
     AppBreakpoints.screen2: screen2,
     AppBreakpoints.screen1: screen1,
@@ -279,7 +283,7 @@ T responsiveValue<T>(
           .firstWhere((e) => e != null, orElse: () => defaultValue)
       as T);
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"screens": false}'}, {}),

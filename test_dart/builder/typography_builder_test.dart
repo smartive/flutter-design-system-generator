@@ -1,12 +1,19 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/typography_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('TypographyBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(TypographyBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(
+          TypographyBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
+      );
     }
   });
 }
@@ -54,11 +61,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
     },
     {'a|lib/a.typography.dart': _multi, 'a|lib/b.typography.dart': _multi},
   ),
-  (
-    'default typography',
-    {'a|lib/a.design-system.json': '{}'},
-    {},
-  ),
+  ('default typography', {'a|lib/a.design-system.json': '{}'}, {}),
   (
     'valid typography',
     {
@@ -86,7 +89,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
             }
           }
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.typography.dart': '''
@@ -158,7 +161,7 @@ enum AppTypography {
 
   final _i1.TextStyle textStyle;
 }
-'''
+''',
     },
   ),
   (
@@ -168,7 +171,7 @@ enum AppTypography {
         "typography": {
           "11": {"family": "Arial"}
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.typography.dart': '''
@@ -201,7 +204,7 @@ enum AppTypography {
 
   final _i1.TextStyle textStyle;
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"typography": false}'}, {}),

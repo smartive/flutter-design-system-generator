@@ -17,8 +17,10 @@ class DesignSystemColor {
   ];
 
   /// Parses a map of colors into a list of [DesignSystemColor] instances.
-  static Iterable<DesignSystemColor> parse(Map<String, dynamic> colors,
-      [String prefix = '']) sync* {
+  static Iterable<DesignSystemColor> parse(
+    Map<String, dynamic> colors, [
+    String prefix = '',
+  ]) sync* {
     for (final e in colors.entries) {
       var name = e.key.replaceAll('DEFAULT', '');
       if (prefix != '' && name.length > 1) {
@@ -37,9 +39,9 @@ class DesignSystemColor {
   String toString() => 'Color $name: $hex';
 
   /// Checks if the hex value is valid.
-  bool get isValid =>
-      RegExp(r'^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$')
-          .hasMatch(hex);
+  bool get isValid => RegExp(
+    r'^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$',
+  ).hasMatch(hex);
 
   /// Returns the color hex value in ARGB format.
   String get colorHex {

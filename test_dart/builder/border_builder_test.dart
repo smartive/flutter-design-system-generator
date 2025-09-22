@@ -1,12 +1,19 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/border_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('BorderBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(BorderBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(
+          BorderBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
+      );
     }
   });
 }
@@ -18,7 +25,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
     'multiple design system',
     {
       'a|lib/a.design-system.json': '{"borderWidths": {"b1": 1, "b2": 2}}',
-      'a|lib/b.design-system.json': '{"borderWidths": {"b3": 3, "b4": 4}}'
+      'a|lib/b.design-system.json': '{"borderWidths": {"b3": 3, "b4": 4}}',
     },
     {
       'a|lib/a.borders.dart': '''
@@ -45,14 +52,12 @@ abstract final class AppBorders {
     _i2.AppBorderWidth? vertical,
     _i3.AppColor color = _i3.AppColor.black,
   }) => _i1.Border.symmetric(
-    horizontal:
-        horizontal != null
-            ? _i1.BorderSide(width: horizontal.width, color: color.color)
-            : _i1.BorderSide.none,
-    vertical:
-        vertical != null
-            ? _i1.BorderSide(width: vertical.width, color: color.color)
-            : _i1.BorderSide.none,
+    horizontal: horizontal != null
+        ? _i1.BorderSide(width: horizontal.width, color: color.color)
+        : _i1.BorderSide.none,
+    vertical: vertical != null
+        ? _i1.BorderSide(width: vertical.width, color: color.color)
+        : _i1.BorderSide.none,
   );
 
   static _i1.Border only({
@@ -62,22 +67,18 @@ abstract final class AppBorders {
     _i2.AppBorderWidth? left,
     _i3.AppColor color = _i3.AppColor.black,
   }) => _i1.Border(
-    top:
-        top != null
-            ? _i1.BorderSide(width: top.width, color: color.color)
-            : _i1.BorderSide.none,
-    right:
-        right != null
-            ? _i1.BorderSide(width: right.width, color: color.color)
-            : _i1.BorderSide.none,
-    bottom:
-        bottom != null
-            ? _i1.BorderSide(width: bottom.width, color: color.color)
-            : _i1.BorderSide.none,
-    left:
-        left != null
-            ? _i1.BorderSide(width: left.width, color: color.color)
-            : _i1.BorderSide.none,
+    top: top != null
+        ? _i1.BorderSide(width: top.width, color: color.color)
+        : _i1.BorderSide.none,
+    right: right != null
+        ? _i1.BorderSide(width: right.width, color: color.color)
+        : _i1.BorderSide.none,
+    bottom: bottom != null
+        ? _i1.BorderSide(width: bottom.width, color: color.color)
+        : _i1.BorderSide.none,
+    left: left != null
+        ? _i1.BorderSide(width: left.width, color: color.color)
+        : _i1.BorderSide.none,
   );
 
   static _i1.Border none() => _i1.Border.fromBorderSide(_i1.BorderSide.none);
@@ -107,14 +108,12 @@ abstract final class AppBorders {
     _i2.AppBorderWidth? vertical,
     _i3.AppColor color = _i3.AppColor.black,
   }) => _i1.Border.symmetric(
-    horizontal:
-        horizontal != null
-            ? _i1.BorderSide(width: horizontal.width, color: color.color)
-            : _i1.BorderSide.none,
-    vertical:
-        vertical != null
-            ? _i1.BorderSide(width: vertical.width, color: color.color)
-            : _i1.BorderSide.none,
+    horizontal: horizontal != null
+        ? _i1.BorderSide(width: horizontal.width, color: color.color)
+        : _i1.BorderSide.none,
+    vertical: vertical != null
+        ? _i1.BorderSide(width: vertical.width, color: color.color)
+        : _i1.BorderSide.none,
   );
 
   static _i1.Border only({
@@ -124,27 +123,23 @@ abstract final class AppBorders {
     _i2.AppBorderWidth? left,
     _i3.AppColor color = _i3.AppColor.black,
   }) => _i1.Border(
-    top:
-        top != null
-            ? _i1.BorderSide(width: top.width, color: color.color)
-            : _i1.BorderSide.none,
-    right:
-        right != null
-            ? _i1.BorderSide(width: right.width, color: color.color)
-            : _i1.BorderSide.none,
-    bottom:
-        bottom != null
-            ? _i1.BorderSide(width: bottom.width, color: color.color)
-            : _i1.BorderSide.none,
-    left:
-        left != null
-            ? _i1.BorderSide(width: left.width, color: color.color)
-            : _i1.BorderSide.none,
+    top: top != null
+        ? _i1.BorderSide(width: top.width, color: color.color)
+        : _i1.BorderSide.none,
+    right: right != null
+        ? _i1.BorderSide(width: right.width, color: color.color)
+        : _i1.BorderSide.none,
+    bottom: bottom != null
+        ? _i1.BorderSide(width: bottom.width, color: color.color)
+        : _i1.BorderSide.none,
+    left: left != null
+        ? _i1.BorderSide(width: left.width, color: color.color)
+        : _i1.BorderSide.none,
   );
 
   static _i1.Border none() => _i1.Border.fromBorderSide(_i1.BorderSide.none);
 }
-'''
-    }
+''',
+    },
   ),
 ];

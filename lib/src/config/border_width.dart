@@ -14,7 +14,8 @@ class DesignSystemBorderWidth {
 
   /// Parses a map of border widths into an iterable of [DesignSystemBorderWidth].
   static Iterable<DesignSystemBorderWidth> parse(
-      Map<String, dynamic> borderWidths) sync* {
+    Map<String, dynamic> borderWidths,
+  ) sync* {
     for (final e in borderWidths.entries) {
       if (e.value is double) {
         yield DesignSystemBorderWidth(e.key, e.value);

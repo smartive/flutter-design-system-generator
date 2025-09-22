@@ -1,12 +1,19 @@
 import 'package:build_test/build_test.dart';
 import 'package:design_system_generator/src/builder/spatial_builder.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('SpatialBuilder', () {
     for (final (name, inputs, outputs) in _cases) {
-      test('should generate correct code ($name).',
-          () => testBuilder(SpatialBuilder(), inputs, outputs: outputs));
+      test(
+        'should generate correct code ($name).',
+        () => testBuilder(
+          SpatialBuilder(),
+          inputs,
+          outputs: outputs,
+          rootPackage: 'design_system_generator',
+        ),
+      );
     }
   });
 }
@@ -245,17 +252,27 @@ enum AppSpatial {
   final double value;
 
   int get integer => value.toInt();
+
   _i1.SizedBox get verticalSpacer => _i1.SizedBox(height: value);
+
   _i1.SizedBox get horizontalSpacer => _i1.SizedBox(width: value);
+
   _i1.EdgeInsets get insetsAll => _i1.EdgeInsets.all(value);
+
   _i1.EdgeInsets get insetsHorizontal =>
       _i1.EdgeInsets.symmetric(horizontal: value);
+
   _i1.EdgeInsets get insetsVertical =>
       _i1.EdgeInsets.symmetric(vertical: value);
+
   _i1.EdgeInsets get insetsTop => _i1.EdgeInsets.only(top: value);
+
   _i1.EdgeInsets get insetsBottom => _i1.EdgeInsets.only(bottom: value);
+
   _i1.EdgeInsets get insetsLeft => _i1.EdgeInsets.only(left: value);
+
   _i1.EdgeInsets get insetsRight => _i1.EdgeInsets.only(right: value);
+
   _i1.EdgeInsets only({
     bool left = false,
     bool top = false,
@@ -267,6 +284,7 @@ enum AppSpatial {
     top: top ? value : 0,
     bottom: bottom ? value : 0,
   );
+
   _i1.EdgeInsets combine({
     AppSpatial? left,
     AppSpatial? top,
@@ -302,7 +320,7 @@ final _cases = <(String, Map<String, String>, Map<String, String>)>[
           "a": 2,
           "b": 4
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.spatials.dart': '''
@@ -335,17 +353,27 @@ enum AppSpatial {
   final double value;
 
   int get integer => value.toInt();
+
   _i1.SizedBox get verticalSpacer => _i1.SizedBox(height: value);
+
   _i1.SizedBox get horizontalSpacer => _i1.SizedBox(width: value);
+
   _i1.EdgeInsets get insetsAll => _i1.EdgeInsets.all(value);
+
   _i1.EdgeInsets get insetsHorizontal =>
       _i1.EdgeInsets.symmetric(horizontal: value);
+
   _i1.EdgeInsets get insetsVertical =>
       _i1.EdgeInsets.symmetric(vertical: value);
+
   _i1.EdgeInsets get insetsTop => _i1.EdgeInsets.only(top: value);
+
   _i1.EdgeInsets get insetsBottom => _i1.EdgeInsets.only(bottom: value);
+
   _i1.EdgeInsets get insetsLeft => _i1.EdgeInsets.only(left: value);
+
   _i1.EdgeInsets get insetsRight => _i1.EdgeInsets.only(right: value);
+
   _i1.EdgeInsets only({
     bool left = false,
     bool top = false,
@@ -357,6 +385,7 @@ enum AppSpatial {
     top: top ? value : 0,
     bottom: bottom ? value : 0,
   );
+
   _i1.EdgeInsets combine({
     AppSpatial? left,
     AppSpatial? top,
@@ -369,7 +398,7 @@ enum AppSpatial {
     bottom: bottom?.value,
   );
 }
-'''
+''',
     },
   ),
   (
@@ -380,7 +409,7 @@ enum AppSpatial {
           "1": "2",
           "2": 4
         }
-      }'''
+      }''',
     },
     {
       'a|lib/a.spatials.dart': '''
@@ -413,17 +442,27 @@ enum AppSpatial {
   final double value;
 
   int get integer => value.toInt();
+
   _i1.SizedBox get verticalSpacer => _i1.SizedBox(height: value);
+
   _i1.SizedBox get horizontalSpacer => _i1.SizedBox(width: value);
+
   _i1.EdgeInsets get insetsAll => _i1.EdgeInsets.all(value);
+
   _i1.EdgeInsets get insetsHorizontal =>
       _i1.EdgeInsets.symmetric(horizontal: value);
+
   _i1.EdgeInsets get insetsVertical =>
       _i1.EdgeInsets.symmetric(vertical: value);
+
   _i1.EdgeInsets get insetsTop => _i1.EdgeInsets.only(top: value);
+
   _i1.EdgeInsets get insetsBottom => _i1.EdgeInsets.only(bottom: value);
+
   _i1.EdgeInsets get insetsLeft => _i1.EdgeInsets.only(left: value);
+
   _i1.EdgeInsets get insetsRight => _i1.EdgeInsets.only(right: value);
+
   _i1.EdgeInsets only({
     bool left = false,
     bool top = false,
@@ -435,6 +474,7 @@ enum AppSpatial {
     top: top ? value : 0,
     bottom: bottom ? value : 0,
   );
+
   _i1.EdgeInsets combine({
     AppSpatial? left,
     AppSpatial? top,
@@ -447,7 +487,7 @@ enum AppSpatial {
     bottom: bottom?.value,
   );
 }
-'''
+''',
     },
   ),
   ('disabled', {'a|lib/a.design-system.json': '{"spacings": false}'}, {}),
