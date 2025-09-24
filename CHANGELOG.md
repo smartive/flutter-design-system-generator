@@ -1,21 +1,3 @@
-# [6.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v6.0.0...v6.1.0) (2025-09-24)
-
-
-### Features
-
-* add lib barrel entrypoint ([#26](https://github.com/smartive/flutter-design-system-generator/issues/26)) ([7f4f382](https://github.com/smartive/flutter-design-system-generator/commit/7f4f3825a1530b38c86a8be6d1fff41d71d59a9c))
-
-# [6.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v5.1.0...v6.0.0) (2025-09-22)
-
-
-* chore(deps)!: update dependencies ([#24](https://github.com/smartive/flutter-design-system-generator/issues/24)) ([c5a58aa](https://github.com/smartive/flutter-design-system-generator/commit/c5a58aa4771382114983aed8278e2b3cb152442a))
-
-
-### BREAKING CHANGES
-
-* Updates minimum supported SDK version to Dart 3.8.
-* Use build 4.0.0
-
 # [5.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v5.0.0...v5.1.0) (2025-02-25)
 
 
