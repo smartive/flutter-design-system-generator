@@ -11,11 +11,10 @@ topics:
   - design-system
   - flutter
   - code-generation
-  - ui
   - theming
   - build-runner
 
-version: 6.1.0
+version: 5.1.0
 
 environment:
   sdk: '>=3.8.0 <4.0.0'
