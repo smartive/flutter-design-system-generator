@@ -22,3 +22,5 @@ jobs:
       - run: flutter analyze
       - run: dart test test_dart
       - run: flutter test
+      - name: Dry-run publish
+        run: dart pub publish --dry-run
