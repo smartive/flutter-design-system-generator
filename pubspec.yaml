@@ -14,7 +14,7 @@ topics:
   - theming
   - build-runner
 
-version: 5.1.0
+version: 6.0.0
 
 environment:
   sdk: '>=3.8.0 <4.0.0'
