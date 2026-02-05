@@ -1,0 +1,19 @@
+name: Aikido Scan
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  aikido-local-scan-repo:
+    runs-on: ubuntu-latest
+    container:
+      image: aikidosecurity/local-scanner:latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.REPO_DEPLOYMENT_TOKEN }}
+      - name: Run scan
+        run: aikido-local-scanner scan ./ --apikey ${{ secrets.AIKIDO_API_KEY }} --repositoryname flutter-design-system-generator --branchname main
