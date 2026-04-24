@@ -1,12 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/semantic-release",
-  "branches": [
-    "main",
-    {
-      "name": "next",
-      "prerelease": "prerelease"
-    }
-  ],
+  "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -14,8 +8,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "sed -i 's/^version: .*$/version: ${nextRelease.version}/' pubspec.yaml",
-        "publishCmd": "flutter pub publish -f"
+        "prepareCmd": "sed -i 's/^version: .*$/version: ${nextRelease.version}/' pubspec.yaml"
       }
     ],
     [
