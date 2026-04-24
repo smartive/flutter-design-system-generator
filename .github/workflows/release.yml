@@ -16,7 +16,7 @@ jobs:
       # semantic-release updates the version, commits changelog changes,
       # and pushes the release tag that triggers the pub.dev publish workflow.
       - name: release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6
         with:
           extra_plugins: |
             @semantic-release/exec
