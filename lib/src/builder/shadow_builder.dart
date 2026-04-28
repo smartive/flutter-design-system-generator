@@ -16,7 +16,8 @@ final class ShadowBuilder extends DesignSystemBuilder {
 
     final boxShadowRef = refer('BoxShadow', 'package:flutter/widgets.dart');
     final offsetRef = refer('Offset', 'package:flutter/widgets.dart');
-    final colorRef = refer('AppColor', './${config.name}.colors.dart');
+    final colorRef = refer('Color', 'dart:ui');
+    final colorsRef = refer('AppColors', './${config.name}.colors.dart');
 
     return Library(
       (b) => b
@@ -42,7 +43,7 @@ final class ShadowBuilder extends DesignSystemBuilder {
                             ..name = 'color'
                             ..type = colorRef
                             ..named = true
-                            ..defaultTo = colorRef.property('black').code,
+                            ..defaultTo = colorsRef.property('black').code,
                         ),
                       )
                       ..lambda = true
@@ -114,12 +115,12 @@ final class ShadowBuilder extends DesignSystemBuilder {
                           ..name = 'color'
                           ..type = colorRef
                           ..named = true
-                          ..defaultTo = colorRef.property('black').code,
+                          ..defaultTo = colorsRef.property('black').code,
                       ),
                     )
                     ..lambda = true
                     ..body = boxShadowRef.newInstance([], {
-                      'color': refer('color').property('color'),
+                      'color': refer('color'),
                       'blurRadius': refer('blurRadius'),
                       'spreadRadius': refer('spreadRadius'),
                       'offset': refer('offset'),
@@ -141,7 +142,7 @@ final class ShadowBuilder extends DesignSystemBuilder {
                           ..name = 'color'
                           ..type = colorRef
                           ..named = true
-                          ..defaultTo = colorRef.property('black').code,
+                          ..defaultTo = colorsRef.property('black').code,
                       ),
                     )
                     ..lambda = true
