@@ -10,6 +10,7 @@ The generator creates the following elements:
 - Colors
 - Border Widths and helper functions to create borders
 - Border Radii
+- Shadows and helper functions to create box shadows
 - Spatials (spacing)
 - Screensizes (Breakpoints) and a responsive helper function
 - Text Styles (Typography)

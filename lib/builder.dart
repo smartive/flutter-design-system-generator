@@ -6,6 +6,7 @@ import 'src/builder/color_builder.dart';
 import 'src/builder/icon_size_builder.dart';
 import 'src/builder/radius_builder.dart';
 import 'src/builder/screen_builder.dart';
+import 'src/builder/shadow_builder.dart';
 import 'src/builder/spatial_builder.dart';
 import 'src/builder/typography_builder.dart';
 
@@ -48,3 +49,8 @@ Builder screenBuilder(BuilderOptions options) => ScreenBuilder();
 ///
 /// This builder generates icon size-related design tokens.
 Builder iconSizeBuilder(BuilderOptions options) => IconSizeBuilder();
+
+/// Creates a [ShadowBuilder] instance.
+///
+/// This builder generates box shadow-related design tokens.
+Builder shadowBuilder(BuilderOptions options) => ShadowBuilder();
