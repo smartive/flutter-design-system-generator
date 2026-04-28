@@ -33,6 +33,18 @@
     "normal": 8,
     "full": 9999
   },
+  "shadows": {
+    "small": {
+      "blurRadius": 4,
+      "spreadRadius": 0,
+      "offset": { "dx": 0, "dy": 2 }
+    },
+    "large": {
+      "blurRadius": 12,
+      "spreadRadius": -2,
+      "offset": { "dx": 0, "dy": 8 }
+    }
+  },
   "typography": {
     "root": {
       "family": "Arial",

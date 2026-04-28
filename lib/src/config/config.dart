@@ -3,6 +3,7 @@ import 'color.dart';
 import 'icon_size.dart';
 import 'radius.dart';
 import 'screen.dart';
+import 'shadow.dart';
 import 'spatial.dart';
 import 'typography.dart';
 
@@ -26,6 +27,9 @@ class DesignSystemConfig {
   /// The list of border radii in the design system.
   final List<DesignSystemBorderRadius> radii;
 
+  /// The list of shadows in the design system.
+  final List<DesignSystemShadow> shadows;
+
   /// The list of text styles in the design system.
   final List<DesignSystemTextStyle> typography;
 
@@ -40,6 +44,7 @@ class DesignSystemConfig {
     required this.spatials,
     required this.borderWidths,
     required this.radii,
+    required this.shadows,
     required this.typography,
     required this.iconSizes,
   });
@@ -81,6 +86,13 @@ class DesignSystemConfig {
           final dynamic data => (DesignSystemBorderRadius.parse(data).toList(
             growable: false,
           )..sort((a, b) => a.radius.compareTo(b.radius))),
+        },
+        shadows: switch (json['shadows']) {
+          bool() => [],
+          null => DesignSystemShadow.defaultValue,
+          final dynamic data => (DesignSystemShadow.parse(
+            data,
+          ).toList(growable: false)..sort((a, b) => a.name.compareTo(b.name))),
         },
         typography: switch (json['typography']) {
           bool() => [],

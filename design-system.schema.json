@@ -133,6 +133,25 @@
         },
         { "const": false }
       ]
+    },
+    "shadows": {
+      "title": "Shadows",
+      "description": "A map of box shadow definitions.",
+      "oneOf": [
+        {
+          "type": "object",
+          "minProperties": 0,
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-zA-Z][a-zA-Z0-9]*$": {
+              "$ref": "#/$defs/shadow"
+            }
+          }
+        },
+        {
+          "const": false
+        }
+      ]
     }
   },
   "$defs": {
@@ -207,6 +226,35 @@
               "$ref": "#/$defs/typography"
             }
           ]
+        }
+      }
+    },
+    "shadow": {
+      "title": "Shadow",
+      "description": "A box shadow definition.",
+      "type": "object",
+      "required": ["blurRadius", "spreadRadius", "offset"],
+      "additionalProperties": false,
+      "properties": {
+        "blurRadius": {
+          "type": "number",
+          "minimum": 0
+        },
+        "spreadRadius": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "object",
+          "required": ["dx", "dy"],
+          "additionalProperties": false,
+          "properties": {
+            "dx": {
+              "type": "number"
+            },
+            "dy": {
+              "type": "number"
+            }
+          }
         }
       }
     },

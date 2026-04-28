@@ -4,6 +4,7 @@ import 'package:design_system_generator/src/config/config.dart';
 import 'package:design_system_generator/src/config/icon_size.dart';
 import 'package:design_system_generator/src/config/radius.dart';
 import 'package:design_system_generator/src/config/screen.dart';
+import 'package:design_system_generator/src/config/shadow.dart';
 import 'package:design_system_generator/src/config/spatial.dart';
 import 'package:design_system_generator/src/config/typography.dart';
 import 'package:test/test.dart';
@@ -16,6 +17,7 @@ void main() {
         'screens': false,
         'spacings': false,
         'borderRadius': false,
+        'shadows': false,
         'typography': false,
       }, 'App');
 
@@ -23,6 +25,7 @@ void main() {
       expect(config.screens, isEmpty);
       expect(config.spatials, isEmpty);
       expect(config.radii, isEmpty);
+      expect(config.shadows, isEmpty);
       expect(config.typography, isEmpty);
     });
 
@@ -34,6 +37,7 @@ void main() {
       expect(config.spatials, DesignSystemSpatial.defaultValue);
       expect(config.borderWidths, DesignSystemBorderWidth.defaultValue);
       expect(config.radii, DesignSystemBorderRadius.defaultValue);
+      expect(config.shadows, DesignSystemShadow.defaultValue);
       expect(config.typography, DesignSystemTextStyle.defaultValue);
       expect(config.iconSizes, DesignSystemIconSize.defaultValue);
     });
@@ -81,6 +85,28 @@ void main() {
         DesignSystemBorderRadius('small', 2),
         DesignSystemBorderRadius('medium', 6),
         DesignSystemBorderRadius('large', 8),
+      ]);
+    });
+
+    test('should correctly parse shadows.', () {
+      final config = DesignSystemConfig.fromJson({
+        'shadows': {
+          'small': {
+            'blurRadius': 4,
+            'spreadRadius': 0,
+            'offset': {'dx': 0, 'dy': 2},
+          },
+          'large': {
+            'blurRadius': 12,
+            'spreadRadius': -2,
+            'offset': {'dx': 0, 'dy': 8},
+          },
+        },
+      }, 'App');
+
+      expect(config.shadows, [
+        DesignSystemShadow('large', 12, -2, 0, 8),
+        DesignSystemShadow('small', 4, 0, 0, 2),
       ]);
     });
 
