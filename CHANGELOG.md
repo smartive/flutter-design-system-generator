@@ -1,17 +1,3 @@
-## [6.1.1](https://github.com/smartive/flutter-design-system-generator/compare/v6.1.0...v6.1.1) (2026-04-28)
-
-
-### Bug Fixes
-
-* update tag pattern for pub.dev publishing ([3498edc](https://github.com/smartive/flutter-design-system-generator/commit/3498edc780909eee270d5e4195d3009bfbd905b6))
-
-# [6.1.0](https://github.com/smartive/flutter-design-system-generator/compare/v6.0.0...v6.1.0) (2026-04-28)
-
-
-### Features
-
-* add shadow builder ([#29](https://github.com/smartive/flutter-design-system-generator/issues/29)) ([1e9548a](https://github.com/smartive/flutter-design-system-generator/commit/1e9548a8ab1130353fb5705c603147f27b319c5d))
-
 # [6.0.0](https://github.com/smartive/flutter-design-system-generator/compare/v5.1.0...v6.0.0) (2025-09-24)
 
 
